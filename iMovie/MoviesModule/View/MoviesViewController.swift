@@ -8,11 +8,15 @@
 
 import UIKit
 
-class MoviesViewController: UIViewController {
+class MoviesViewController: UIViewController, MoviesViewProtocol {
+  
+  var presenter: MoviesPresenterProtocol!
+  let congigurator: MoviesConfiguratorProtocol = MoviesConfigurator()
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    congigurator.configure(with: self)
+    presenter.configureView()
   }
   
 }
