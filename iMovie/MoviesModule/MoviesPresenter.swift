@@ -9,11 +9,17 @@
 import Foundation
 
 protocol MoviesPresenterProtocol: class {
+  var items: [MoviesItem] {get}
+  var sections: [MoviesSection] {get}
   var router: MoviesRouterProtocol! {get set}
   func configureView()
 }
 
 class MoviesPresenter: MoviesPresenterProtocol {
+  var items: [MoviesItem] = [MoviesItem(name: "Hello")]
+  
+  var sections: [MoviesSection] = [MoviesSection(name: "Section 1")]
+  
   weak var view: MoviesViewProtocol!
   var router: MoviesRouterProtocol!
   var interactor: MoviesInteractorProtocol!

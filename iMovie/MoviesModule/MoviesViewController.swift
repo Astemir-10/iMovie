@@ -8,7 +8,9 @@
 
 import UIKit
 
-class MoviesViewController: UIViewController, MoviesViewProtocol {
+class MoviesViewController: UIViewController {
+  @IBOutlet weak var collectionView: UICollectionView!
+  var diffableDataSource: UICollectionViewDiffableDataSource<MoviesSection, MoviesItem>!
   
   var presenter: MoviesPresenterProtocol!
   let congigurator: MoviesConfiguratorProtocol = MoviesConfigurator()
@@ -17,6 +19,14 @@ class MoviesViewController: UIViewController, MoviesViewProtocol {
     super.viewDidLoad()
     congigurator.configure(with: self)
     presenter.configureView()
+    setupUI()
   }
+}
+
+
+// MARK: - MoviesViewProtocol
+extension MoviesViewController: MoviesViewProtocol {
   
 }
+
+
