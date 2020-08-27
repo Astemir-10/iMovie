@@ -13,6 +13,7 @@ enum SourceURL: String {
   case topRaited = "https://api.themoviedb.org/3/movie/top_rated"
   case genresList = "https://api.themoviedb.org/3/genre/movie/list"
   case upcoming = "https://api.themoviedb.org/3/movie/upcoming"
+  case downloadImage = "https://image.tmdb.org/t/p/w500"
 }
 
 typealias MoviesResponse = (ResponseMovies?, String?) -> Void
@@ -26,6 +27,7 @@ class NetworkService {
   private var defaultParams: [String: String] {
     return ["api_key":apiKey, "language": language, "page": "1"]
   }
+  static let shared = NetworkService()
   
   func getPopularMovies(completion: @escaping MoviesResponse) {
     getData(url: SourceURL.popular) { (data, error) in
@@ -52,7 +54,6 @@ class NetworkService {
   }
   
   func getGenreList(completion: @escaping GenreListResponse) {
-    print("OK")
     getData(url: .genresList) { (data, error) in
       if error != nil {
         completion(nil, error)
@@ -76,6 +77,17 @@ class NetworkService {
     }
   }
   
+  func downloadImage(url: String, completion: @escaping (Data?, String?) -> Void) {
+    getData(url: .downloadImage) { (data, error) in
+      if let error = error {
+        completion(nil, error)
+        return
+      }
+      guard let data = data else {return}
+      completion(data,nil)
+    }
+  }
+  
   fileprivate func getData(url: SourceURL, completion: @escaping (Data?, String?) -> Void) {
     var urlString: String
     switch url {
@@ -83,6 +95,7 @@ class NetworkService {
     case .topRaited: urlString = SourceURL.topRaited.rawValue
     case .genresList: urlString = SourceURL.genresList.rawValue
     case .upcoming: urlString = SourceURL.upcoming.rawValue
+    case .downloadImage: urlString = SourceURL.downloadImage.rawValue
     }
     router.request(url: urlString, method: .get, parapms: defaultParams, headers: nil) { (data, response, error) in
       if let error = error {
@@ -118,4 +131,6 @@ class NetworkService {
       return .failure(ResponseErrors.badReauest.rawValue)
     }
   }
+  
+  
 }
