@@ -1,5 +1,5 @@
 //
-//  PopularMoviesResponse.swift
+//  MovieGenres.swift
 //  iMovie
 //
 //  Created by Astemir Shibzuhov on 27.08.2020.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct PopularMovies: Decodable {
-  let results: [Movie]
+struct MovieGenres: Decodable {
+  let genres: [Genre]
 }
