@@ -8,6 +8,20 @@
 
 import Foundation
 
-struct Movie: Decodable {
+struct Movie {
   let title: String
+  let posterUrl: String
+}
+
+extension Movie: Decodable {
+  private enum MovieCodingKey: String, CodingKey {
+    case title
+    case posterUrl = "poster_path"
+  }
+  
+  init(from decoder: Decoder) throws {
+    let container = try decoder.container(keyedBy: MovieCodingKey.self)
+    title = try container.decode(String.self, forKey: .title)
+    posterUrl = try container.decode(String.self, forKey: .posterUrl)
+  }
 }
