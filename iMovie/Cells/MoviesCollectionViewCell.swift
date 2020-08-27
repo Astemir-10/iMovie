@@ -18,7 +18,9 @@ class MoviesCollectionViewCell: UICollectionViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    
+    filmName.font = UIFont(name: "SourceSansPro-Regular", size: 15)
+    filmGenre.font = UIFont(name: "SourceSansPro-Regular", size: 13)
+    backgroundColor = .white
   }
   
 }

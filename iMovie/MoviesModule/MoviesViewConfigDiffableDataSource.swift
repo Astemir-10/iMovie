@@ -38,7 +38,7 @@ extension MoviesViewController {
           guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoviesCollectionViewCell.reuseId, for: indexPath) as? MoviesCollectionViewCell else {return nil}
           cell.filmName.text = moviesItem.title
           cell.posterImage.loadImage(url: moviesItem.posterUrl)
-          cell.backgroundColor = .lightGray
+//          cell.filmGenre.text = "\(moviesItem)"
           return cell
       })
     let snapshot = generateSnapshot()
