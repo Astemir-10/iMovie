@@ -185,8 +185,8 @@
 		E2B2508E24F6E6AB00BBDE0A /* MoviesModule */ = {
 			isa = PBXGroup;
 			children = (
-				E2B2509724F6EAB100BBDE0A /* MoviesConfigurator.swift */,
 				E2238C6124F701CE00DDD76E /* Entity */,
+				E2B2509724F6EAB100BBDE0A /* MoviesConfigurator.swift */,
 				E2B2508F24F6E6CD00BBDE0A /* MoviesViewController.swift */,
 				E2238C6C24F7063200DDD76E /* MoviesViewConfigDiffableDataSource.swift */,
 				E2B2509124F6E6DE00BBDE0A /* MoviesViewController.storyboard */,

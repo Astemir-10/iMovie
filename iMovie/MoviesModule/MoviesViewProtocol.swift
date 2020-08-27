@@ -9,5 +9,5 @@
 import Foundation
 
 protocol MoviesViewProtocol: class {
-  
+  func displayPopularMovies()
 }

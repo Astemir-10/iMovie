@@ -15,8 +15,19 @@ protocol MoviesInteractorProtocol {
 class MoviesInteractor: MoviesInteractorProtocol {
   weak var presenter: MoviesPresenterProtocol!
   
+  
   func requestMainMovies() {
-    
+    NetworkService.shared.getPopularMovies { (movies, error) in
+      if let error = error {
+        print(error)
+        return
+      }
+      guard let movies = movies else {
+        print("No movies")
+        return
+      }
+      self.presenter.sendMovies(movies: movies.results)
+    }
   }
   
   required init(presenter: MoviesPresenterProtocol) {

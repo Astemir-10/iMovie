@@ -30,13 +30,14 @@ extension MoviesViewController {
     return layout
   }
   
-  fileprivate func configurationDiffableDataSource() {
+  internal func configurationDiffableDataSource() {
     diffableDataSource =
       UICollectionViewDiffableDataSource<MoviesSection, MoviesItem>(collectionView: collectionView,
                                                                     cellProvider:
         { (collectionView, indexPath, moviesItem) -> UICollectionViewCell? in
           guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoviesCollectionViewCell.reuseId, for: indexPath) as? MoviesCollectionViewCell else {return nil}
-          cell.backgroundColor = .black
+          cell.filmName.text = moviesItem.name
+          cell.backgroundColor = .lightGray
           return cell
       })
     let snapshot = generateSnapshot()
@@ -44,22 +45,32 @@ extension MoviesViewController {
   }
   
   fileprivate func createMovieloayout() -> NSCollectionLayoutSection {
-    let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                          heightDimension: .fractionalHeight(1.0))
+    
+    let cellWidth = CGFloat(141)
+    let cellHeight = cellWidth / 0.5726495726
+    
+    let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(cellWidth),
+                                          heightDimension: .absolute(cellHeight))
     let item = NSCollectionLayoutItem(layoutSize: itemSize)
     
-    let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                           heightDimension: .fractionalHeight(1 / 4))
+    let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(cellWidth * 3 + 24),
+                                           heightDimension: .absolute(cellHeight))
     
     let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+    group.interItemSpacing = .fixed(8)
+    
     let section = NSCollectionLayoutSection(group: group)
+    section.orthogonalScrollingBehavior = .continuous
+    section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
     return section
   }
   
   fileprivate func generateSnapshot() -> NSDiffableDataSourceSnapshot<MoviesSection, MoviesItem> {
     var snapshot = NSDiffableDataSourceSnapshot<MoviesSection, MoviesItem>()
-    snapshot.appendSections(presenter.sections)
-    snapshot.appendItems(presenter.items)
+    if !presenter.sections.isEmpty {
+      snapshot.appendSections(presenter.sections)
+      snapshot.appendItems(presenter.items)
+    }
     return snapshot
   }
 }

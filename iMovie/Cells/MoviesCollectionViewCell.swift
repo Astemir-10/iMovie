@@ -15,9 +15,10 @@ class MoviesCollectionViewCell: UICollectionViewCell {
   @IBOutlet weak var filmGenre: UILabel!
   @IBOutlet weak var raitingLabel: UILabel!
   @IBOutlet weak var raitingView: UIView!
+  
   override func awakeFromNib() {
     super.awakeFromNib()
-    // Initialization code
+    
   }
   
 }

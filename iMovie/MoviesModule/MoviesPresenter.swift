@@ -13,12 +13,14 @@ protocol MoviesPresenterProtocol: class {
   var sections: [MoviesSection] {get}
   var router: MoviesRouterProtocol! {get set}
   func configureView()
+  func sendMovies(movies: [Movie])
+  func requestMoviesForMain()
 }
 
 class MoviesPresenter: MoviesPresenterProtocol {
-  var items: [MoviesItem] = [MoviesItem(name: "Hello")]
+  var items: [MoviesItem] = []
   
-  var sections: [MoviesSection] = [MoviesSection(name: "Section 1")]
+  var sections: [MoviesSection] = []
   
   weak var view: MoviesViewProtocol!
   var router: MoviesRouterProtocol!
@@ -26,6 +28,19 @@ class MoviesPresenter: MoviesPresenterProtocol {
   
   func configureView() {
     
+  }
+  
+  func sendMovies(movies: [Movie]) {
+    for i in movies {
+      let item = MoviesItem(name: i.title)
+      items.append(item)
+    }
+    sections.append(MoviesSection(name: "Popular"))
+    view.displayPopularMovies()
+  }
+  
+  func requestMoviesForMain() {
+    interactor.requestMainMovies()
   }
   
   required init(view: MoviesViewProtocol) {

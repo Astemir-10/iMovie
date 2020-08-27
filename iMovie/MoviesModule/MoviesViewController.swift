@@ -20,13 +20,19 @@ class MoviesViewController: UIViewController {
     congigurator.configure(with: self)
     presenter.configureView()
     setupUI()
+    presenter.requestMoviesForMain()
   }
 }
 
 
 // MARK: - MoviesViewProtocol
 extension MoviesViewController: MoviesViewProtocol {
-  
+  func displayPopularMovies() {
+    print(presenter.sections.count)
+    DispatchQueue.main.async {
+      self.configurationDiffableDataSource()
+    }
+  }
 }
 
 
