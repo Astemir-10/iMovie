@@ -10,6 +10,11 @@ import UIKit
 
 class MoviesCollectionViewCell: UICollectionViewCell {
   static let reuseId = String(describing: MoviesCollectionViewCell.self)
+  @IBOutlet weak var posterImage: UIImageView!
+  @IBOutlet weak var filmName: UILabel!
+  @IBOutlet weak var filmGenre: UILabel!
+  @IBOutlet weak var raitingLabel: UILabel!
+  @IBOutlet weak var raitingView: UIView!
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code

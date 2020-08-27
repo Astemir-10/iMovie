@@ -36,6 +36,19 @@
 		E2B250A024F6EDFF00BBDE0A /* MoviesViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B2509F24F6EDFF00BBDE0A /* MoviesViewProtocol.swift */; };
 		E2C4AF0624F80C1100C75023 /* ResponseErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C4AF0524F80C1100C75023 /* ResponseErrors.swift */; };
 		E2C4AF0824F80C3100C75023 /* ResponseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C4AF0724F80C3100C75023 /* ResponseResult.swift */; };
+		E2C4AF1724F8190800C75023 /* SourceSansPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E2C4AF0B24F8190700C75023 /* SourceSansPro-Semibold.otf */; };
+		E2C4AF1824F8190800C75023 /* SourceSansPro-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = E2C4AF0C24F8190700C75023 /* SourceSansPro-ExtraLight.otf */; };
+		E2C4AF1924F8190800C75023 /* SourceSansPro-SemiboldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E2C4AF0D24F8190700C75023 /* SourceSansPro-SemiboldIt.otf */; };
+		E2C4AF1A24F8190800C75023 /* SourceSansPro-BoldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E2C4AF0E24F8190700C75023 /* SourceSansPro-BoldIt.otf */; };
+		E2C4AF1B24F8190800C75023 /* SourceSansPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E2C4AF0F24F8190700C75023 /* SourceSansPro-Bold.otf */; };
+		E2C4AF1C24F8190800C75023 /* SourceSansPro-BlackIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E2C4AF1024F8190700C75023 /* SourceSansPro-BlackIt.otf */; };
+		E2C4AF1D24F8190800C75023 /* SourceSansPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E2C4AF1124F8190700C75023 /* SourceSansPro-Regular.otf */; };
+		E2C4AF1E24F8190800C75023 /* SourceSansPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = E2C4AF1224F8190800C75023 /* SourceSansPro-Light.otf */; };
+		E2C4AF1F24F8190800C75023 /* SourceSansPro-It.otf in Resources */ = {isa = PBXBuildFile; fileRef = E2C4AF1324F8190800C75023 /* SourceSansPro-It.otf */; };
+		E2C4AF2024F8190800C75023 /* SourceSansPro-LightIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E2C4AF1424F8190800C75023 /* SourceSansPro-LightIt.otf */; };
+		E2C4AF2124F8190800C75023 /* SourceSansPro-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = E2C4AF1524F8190800C75023 /* SourceSansPro-Black.otf */; };
+		E2C4AF2224F8190800C75023 /* SourceSansPro-ExtraLightIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E2C4AF1624F8190800C75023 /* SourceSansPro-ExtraLightIt.otf */; };
+		E2C4AF2424F828F600C75023 /* UIImageView + loadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C4AF2324F828F600C75023 /* UIImageView + loadImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +83,19 @@
 		E2B2509F24F6EDFF00BBDE0A /* MoviesViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewProtocol.swift; sourceTree = "<group>"; };
 		E2C4AF0524F80C1100C75023 /* ResponseErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseErrors.swift; sourceTree = "<group>"; };
 		E2C4AF0724F80C3100C75023 /* ResponseResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseResult.swift; sourceTree = "<group>"; };
+		E2C4AF0B24F8190700C75023 /* SourceSansPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.otf"; sourceTree = "<group>"; };
+		E2C4AF0C24F8190700C75023 /* SourceSansPro-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-ExtraLight.otf"; sourceTree = "<group>"; };
+		E2C4AF0D24F8190700C75023 /* SourceSansPro-SemiboldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-SemiboldIt.otf"; sourceTree = "<group>"; };
+		E2C4AF0E24F8190700C75023 /* SourceSansPro-BoldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-BoldIt.otf"; sourceTree = "<group>"; };
+		E2C4AF0F24F8190700C75023 /* SourceSansPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Bold.otf"; sourceTree = "<group>"; };
+		E2C4AF1024F8190700C75023 /* SourceSansPro-BlackIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-BlackIt.otf"; sourceTree = "<group>"; };
+		E2C4AF1124F8190700C75023 /* SourceSansPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.otf"; sourceTree = "<group>"; };
+		E2C4AF1224F8190800C75023 /* SourceSansPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.otf"; sourceTree = "<group>"; };
+		E2C4AF1324F8190800C75023 /* SourceSansPro-It.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-It.otf"; sourceTree = "<group>"; };
+		E2C4AF1424F8190800C75023 /* SourceSansPro-LightIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-LightIt.otf"; sourceTree = "<group>"; };
+		E2C4AF1524F8190800C75023 /* SourceSansPro-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Black.otf"; sourceTree = "<group>"; };
+		E2C4AF1624F8190800C75023 /* SourceSansPro-ExtraLightIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-ExtraLightIt.otf"; sourceTree = "<group>"; };
+		E2C4AF2324F828F600C75023 /* UIImageView + loadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + loadImage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +168,7 @@
 			children = (
 				E2B2507724F6E49300BBDE0A /* AppDelegate.swift */,
 				E2B2507924F6E49300BBDE0A /* SceneDelegate.swift */,
+				E2C4AF0A24F8112200C75023 /* Fonts */,
 				E2C4AEFF24F80B2100C75023 /* Models */,
 				E200867024F7237B0074378D /* NetworkLayer */,
 				E2238C6624F7034400DDD76E /* Cells */,
@@ -175,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				E2B2509524F6E75F00BBDE0A /* UIViewController + loadFromStoryboard.swift */,
+				E2C4AF2324F828F600C75023 /* UIImageView + loadImage.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -222,6 +250,25 @@
 				E2C4AF0524F80C1100C75023 /* ResponseErrors.swift */,
 			);
 			path = MovieNetworking;
+			sourceTree = "<group>";
+		};
+		E2C4AF0A24F8112200C75023 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E2C4AF1524F8190800C75023 /* SourceSansPro-Black.otf */,
+				E2C4AF1024F8190700C75023 /* SourceSansPro-BlackIt.otf */,
+				E2C4AF0F24F8190700C75023 /* SourceSansPro-Bold.otf */,
+				E2C4AF0E24F8190700C75023 /* SourceSansPro-BoldIt.otf */,
+				E2C4AF0C24F8190700C75023 /* SourceSansPro-ExtraLight.otf */,
+				E2C4AF1624F8190800C75023 /* SourceSansPro-ExtraLightIt.otf */,
+				E2C4AF1324F8190800C75023 /* SourceSansPro-It.otf */,
+				E2C4AF1224F8190800C75023 /* SourceSansPro-Light.otf */,
+				E2C4AF1424F8190800C75023 /* SourceSansPro-LightIt.otf */,
+				E2C4AF1124F8190700C75023 /* SourceSansPro-Regular.otf */,
+				E2C4AF0B24F8190700C75023 /* SourceSansPro-Semibold.otf */,
+				E2C4AF0D24F8190700C75023 /* SourceSansPro-SemiboldIt.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,10 +329,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2C4AF1F24F8190800C75023 /* SourceSansPro-It.otf in Resources */,
 				E2B2508724F6E49900BBDE0A /* LaunchScreen.storyboard in Resources */,
+				E2C4AF2224F8190800C75023 /* SourceSansPro-ExtraLightIt.otf in Resources */,
+				E2C4AF1B24F8190800C75023 /* SourceSansPro-Bold.otf in Resources */,
+				E2C4AF1A24F8190800C75023 /* SourceSansPro-BoldIt.otf in Resources */,
 				E2B2509224F6E6DE00BBDE0A /* MoviesViewController.storyboard in Resources */,
+				E2C4AF1C24F8190800C75023 /* SourceSansPro-BlackIt.otf in Resources */,
 				E2B2508424F6E49900BBDE0A /* Assets.xcassets in Resources */,
+				E2C4AF1E24F8190800C75023 /* SourceSansPro-Light.otf in Resources */,
+				E2C4AF1D24F8190800C75023 /* SourceSansPro-Regular.otf in Resources */,
+				E2C4AF2024F8190800C75023 /* SourceSansPro-LightIt.otf in Resources */,
 				E2238C6A24F7036300DDD76E /* MoviesCollectionViewCell.xib in Resources */,
+				E2C4AF1724F8190800C75023 /* SourceSansPro-Semibold.otf in Resources */,
+				E2C4AF1924F8190800C75023 /* SourceSansPro-SemiboldIt.otf in Resources */,
+				E2C4AF2124F8190800C75023 /* SourceSansPro-Black.otf in Resources */,
+				E2C4AF1824F8190800C75023 /* SourceSansPro-ExtraLight.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +361,7 @@
 				E2238C6924F7036300DDD76E /* MoviesCollectionViewCell.swift in Sources */,
 				E200867224F7238E0074378D /* NetworkRouter.swift in Sources */,
 				E200867B24F72CA60074378D /* NetworkService.swift in Sources */,
+				E2C4AF2424F828F600C75023 /* UIImageView + loadImage.swift in Sources */,
 				E2B2508224F6E49300BBDE0A /* iMovie.xcdatamodeld in Sources */,
 				E2B2509A24F6EAB900BBDE0A /* MoviesPresenter.swift in Sources */,
 				E2B2509624F6E75F00BBDE0A /* UIViewController + loadFromStoryboard.swift in Sources */,
