@@ -10,7 +10,7 @@ import UIKit
 
 extension UIImageView {
   func loadImage(url: String) {
-    guard let url = URL(string: url) else {
+    guard let url = URL(string: SourceURL.downloadImage.rawValue + url) else {
       print("invalid url")
       return
     }
