@@ -77,17 +77,6 @@ class NetworkService {
     }
   }
   
-  func downloadImage(url: String, completion: @escaping (Data?, String?) -> Void) {
-    getData(url: .downloadImage) { (data, error) in
-      if let error = error {
-        completion(nil, error)
-        return
-      }
-      guard let data = data else {return}
-      completion(data,nil)
-    }
-  }
-  
   fileprivate func getData(url: SourceURL, completion: @escaping (Data?, String?) -> Void) {
     var urlString: String
     switch url {
@@ -95,7 +84,7 @@ class NetworkService {
     case .topRaited: urlString = SourceURL.topRaited.rawValue
     case .genresList: urlString = SourceURL.genresList.rawValue
     case .upcoming: urlString = SourceURL.upcoming.rawValue
-    case .downloadImage: urlString = SourceURL.downloadImage.rawValue
+    case .downloadImage: return
     }
     router.request(url: urlString, method: .get, parapms: defaultParams, headers: nil) { (data, response, error) in
       if let error = error {
