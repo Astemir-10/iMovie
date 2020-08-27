@@ -8,12 +8,6 @@
 
 import Foundation
 
-//"genre_ids": [
-//  28,
-//  80,
-//  878
-//],
-
 struct Movie {
   let title: String
   let posterUrl: String
