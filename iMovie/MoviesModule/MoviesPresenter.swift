@@ -9,7 +9,7 @@
 import Foundation
 
 protocol MoviesPresenterProtocol: class {
-  var items: [MoviesItem] {get}
+  var items: [Movie] {get}
   var sections: [MoviesSection] {get}
   var router: MoviesRouterProtocol! {get set}
   func configureView()
@@ -18,7 +18,7 @@ protocol MoviesPresenterProtocol: class {
 }
 
 class MoviesPresenter: MoviesPresenterProtocol {
-  var items: [MoviesItem] = []
+  var items: [Movie] = []
   
   var sections: [MoviesSection] = []
   
@@ -31,10 +31,7 @@ class MoviesPresenter: MoviesPresenterProtocol {
   }
   
   func sendMovies(movies: [Movie]) {
-    for i in movies {
-      let item = MoviesItem(name: i.title)
-      items.append(item)
-    }
+    items = movies
     sections.append(MoviesSection(name: "Popular"))
     view.displayPopularMovies()
   }

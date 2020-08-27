@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Movie {
+struct Movie: Hashable {
   let title: String
   let posterUrl: String
 }

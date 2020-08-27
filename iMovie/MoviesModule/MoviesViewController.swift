@@ -10,7 +10,7 @@ import UIKit
 
 class MoviesViewController: UIViewController {
   @IBOutlet weak var collectionView: UICollectionView!
-  var diffableDataSource: UICollectionViewDiffableDataSource<MoviesSection, MoviesItem>!
+  var diffableDataSource: UICollectionViewDiffableDataSource<MoviesSection, Movie>!
   
   var presenter: MoviesPresenterProtocol!
   let congigurator: MoviesConfiguratorProtocol = MoviesConfigurator()

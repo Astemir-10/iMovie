@@ -32,11 +32,12 @@ extension MoviesViewController {
   
   internal func configurationDiffableDataSource() {
     diffableDataSource =
-      UICollectionViewDiffableDataSource<MoviesSection, MoviesItem>(collectionView: collectionView,
+      UICollectionViewDiffableDataSource<MoviesSection, Movie>(collectionView: collectionView,
                                                                     cellProvider:
         { (collectionView, indexPath, moviesItem) -> UICollectionViewCell? in
           guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoviesCollectionViewCell.reuseId, for: indexPath) as? MoviesCollectionViewCell else {return nil}
-          cell.filmName.text = moviesItem.name
+          cell.filmName.text = moviesItem.title
+          cell.posterImage.loadImage(url: moviesItem.posterUrl)
           cell.backgroundColor = .lightGray
           return cell
       })
@@ -65,8 +66,8 @@ extension MoviesViewController {
     return section
   }
   
-  fileprivate func generateSnapshot() -> NSDiffableDataSourceSnapshot<MoviesSection, MoviesItem> {
-    var snapshot = NSDiffableDataSourceSnapshot<MoviesSection, MoviesItem>()
+  fileprivate func generateSnapshot() -> NSDiffableDataSourceSnapshot<MoviesSection, Movie> {
+    var snapshot = NSDiffableDataSourceSnapshot<MoviesSection, Movie>()
     if !presenter.sections.isEmpty {
       snapshot.appendSections(presenter.sections)
       snapshot.appendItems(presenter.items)

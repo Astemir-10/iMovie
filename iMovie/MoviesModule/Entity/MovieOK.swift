@@ -9,6 +9,6 @@
 import Foundation
 
 
-struct MoviesItem: Hashable {
-  let name: String
-}
+//struct Movie: Hashable {
+//  let name: String
+//}
