@@ -49,9 +49,10 @@ class NetworkRouter: NetworkRouterProtocol {
       guard let urlOfUrlConponents = urlComponents?.url else {
         fatalError("Invalid url")
       }
-      var request = URLRequest(url: urlOfUrlConponents)
+      var request = URLRequest(url: urlOfUrlConponents, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 10.0)
       request.allHTTPHeaderFields = headers
       request.httpMethod = method.rawValue
+      print(request.url?.absoluteString)
       return request
     } catch let error {
       print(error)
