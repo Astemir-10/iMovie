@@ -20,6 +20,11 @@
 		E2238C6924F7036300DDD76E /* MoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2238C6724F7036300DDD76E /* MoviesCollectionViewCell.swift */; };
 		E2238C6A24F7036300DDD76E /* MoviesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2238C6824F7036300DDD76E /* MoviesCollectionViewCell.xib */; };
 		E2238C6D24F7063200DDD76E /* MoviesViewConfigDiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2238C6C24F7063200DDD76E /* MoviesViewConfigDiffableDataSource.swift */; };
+		E23F207E24F91A1300179CD1 /* HMoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F207C24F91A1300179CD1 /* HMoviesCollectionViewCell.swift */; };
+		E23F207F24F91A1300179CD1 /* HMoviesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E23F207D24F91A1300179CD1 /* HMoviesCollectionViewCell.xib */; };
+		E25F5BAD24F8854D00542B23 /* MoviesItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25F5BAC24F8854D00542B23 /* MoviesItem.swift */; };
+		E25F5BB024F8889900542B23 /* GenreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25F5BAE24F8889900542B23 /* GenreCollectionViewCell.swift */; };
+		E25F5BB124F8889900542B23 /* GenreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E25F5BAF24F8889900542B23 /* GenreCollectionViewCell.xib */; };
 		E2B2507824F6E49300BBDE0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B2507724F6E49300BBDE0A /* AppDelegate.swift */; };
 		E2B2507A24F6E49300BBDE0A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B2507924F6E49300BBDE0A /* SceneDelegate.swift */; };
 		E2B2508224F6E49300BBDE0A /* iMovie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2B2508024F6E49300BBDE0A /* iMovie.xcdatamodeld */; };
@@ -64,6 +69,11 @@
 		E2238C6724F7036300DDD76E /* MoviesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesCollectionViewCell.swift; sourceTree = "<group>"; };
 		E2238C6824F7036300DDD76E /* MoviesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoviesCollectionViewCell.xib; sourceTree = "<group>"; };
 		E2238C6C24F7063200DDD76E /* MoviesViewConfigDiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewConfigDiffableDataSource.swift; sourceTree = "<group>"; };
+		E23F207C24F91A1300179CD1 /* HMoviesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMoviesCollectionViewCell.swift; sourceTree = "<group>"; };
+		E23F207D24F91A1300179CD1 /* HMoviesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HMoviesCollectionViewCell.xib; sourceTree = "<group>"; };
+		E25F5BAC24F8854D00542B23 /* MoviesItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesItem.swift; sourceTree = "<group>"; };
+		E25F5BAE24F8889900542B23 /* GenreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCollectionViewCell.swift; sourceTree = "<group>"; };
+		E25F5BAF24F8889900542B23 /* GenreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenreCollectionViewCell.xib; sourceTree = "<group>"; };
 		E2B2507424F6E49300BBDE0A /* iMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2B2507724F6E49300BBDE0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2B2507924F6E49300BBDE0A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,8 +120,8 @@
 		E200867024F7237B0074378D /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
-				E200867724F72C620074378D /* Service */,
 				E2C4AF0424F80C0000C75023 /* MovieNetworking */,
+				E200867724F72C620074378D /* Service */,
 				E2C4AF0324F80BEC00C75023 /* Decoder */,
 			);
 			path = NetworkLayer;
@@ -131,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				E2238C6224F701E300DDD76E /* MoviesSection.swift */,
+				E25F5BAC24F8854D00542B23 /* MoviesItem.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -138,10 +149,38 @@
 		E2238C6624F7034400DDD76E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				E25F5BB224F9074500542B23 /* GenreCell */,
+				E25F5BB324F9075100542B23 /* MovieCell */,
+				E23F208024F91A1900179CD1 /* HMoviesCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		E23F208024F91A1900179CD1 /* HMoviesCell */ = {
+			isa = PBXGroup;
+			children = (
+				E23F207C24F91A1300179CD1 /* HMoviesCollectionViewCell.swift */,
+				E23F207D24F91A1300179CD1 /* HMoviesCollectionViewCell.xib */,
+			);
+			path = HMoviesCell;
+			sourceTree = "<group>";
+		};
+		E25F5BB224F9074500542B23 /* GenreCell */ = {
+			isa = PBXGroup;
+			children = (
+				E25F5BAE24F8889900542B23 /* GenreCollectionViewCell.swift */,
+				E25F5BAF24F8889900542B23 /* GenreCollectionViewCell.xib */,
+			);
+			path = GenreCell;
+			sourceTree = "<group>";
+		};
+		E25F5BB324F9075100542B23 /* MovieCell */ = {
+			isa = PBXGroup;
+			children = (
 				E2238C6724F7036300DDD76E /* MoviesCollectionViewCell.swift */,
 				E2238C6824F7036300DDD76E /* MoviesCollectionViewCell.xib */,
 			);
-			path = Cells;
+			path = MovieCell;
 			sourceTree = "<group>";
 		};
 		E2B2506B24F6E49300BBDE0A = {
@@ -326,6 +365,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E23F207F24F91A1300179CD1 /* HMoviesCollectionViewCell.xib in Resources */,
 				E2C4AF1F24F8190800C75023 /* SourceSansPro-It.otf in Resources */,
 				E2B2508724F6E49900BBDE0A /* LaunchScreen.storyboard in Resources */,
 				E2C4AF2224F8190800C75023 /* SourceSansPro-ExtraLightIt.otf in Resources */,
@@ -337,6 +377,7 @@
 				E2C4AF1E24F8190800C75023 /* SourceSansPro-Light.otf in Resources */,
 				E2C4AF1D24F8190800C75023 /* SourceSansPro-Regular.otf in Resources */,
 				E2C4AF2024F8190800C75023 /* SourceSansPro-LightIt.otf in Resources */,
+				E25F5BB124F8889900542B23 /* GenreCollectionViewCell.xib in Resources */,
 				E2238C6A24F7036300DDD76E /* MoviesCollectionViewCell.xib in Resources */,
 				E2C4AF1724F8190800C75023 /* SourceSansPro-Semibold.otf in Resources */,
 				E2C4AF1924F8190800C75023 /* SourceSansPro-SemiboldIt.otf in Resources */,
@@ -357,6 +398,7 @@
 				E200868524F80A850074378D /* Genre.swift in Sources */,
 				E2238C6924F7036300DDD76E /* MoviesCollectionViewCell.swift in Sources */,
 				E200867224F7238E0074378D /* NetworkRouter.swift in Sources */,
+				E25F5BAD24F8854D00542B23 /* MoviesItem.swift in Sources */,
 				E200867B24F72CA60074378D /* NetworkService.swift in Sources */,
 				E2C4AF2424F828F600C75023 /* UIImageView + loadImage.swift in Sources */,
 				E2B2508224F6E49300BBDE0A /* iMovie.xcdatamodeld in Sources */,
@@ -367,6 +409,7 @@
 				E2238C6D24F7063200DDD76E /* MoviesViewConfigDiffableDataSource.swift in Sources */,
 				E2B2507824F6E49300BBDE0A /* AppDelegate.swift in Sources */,
 				E2C4AF0824F80C3100C75023 /* ResponseResult.swift in Sources */,
+				E25F5BB024F8889900542B23 /* GenreCollectionViewCell.swift in Sources */,
 				E200867D24F7E0350074378D /* MoviesJSONDecoder.swift in Sources */,
 				E2B2509E24F6EAC800BBDE0A /* MoviesRouter.swift in Sources */,
 				E2B250A024F6EDFF00BBDE0A /* MoviesViewProtocol.swift in Sources */,
@@ -374,6 +417,7 @@
 				E200867F24F7E5C20074378D /* Movie.swift in Sources */,
 				E2B2509824F6EAB100BBDE0A /* MoviesConfigurator.swift in Sources */,
 				E2C4AF0624F80C1100C75023 /* ResponseErrors.swift in Sources */,
+				E23F207E24F91A1300179CD1 /* HMoviesCollectionViewCell.swift in Sources */,
 				E200867424F723980074378D /* HTTPMethod.swift in Sources */,
 				E2B2509C24F6EAC100BBDE0A /* MoviesInteractor.swift in Sources */,
 				E2B2509024F6E6CD00BBDE0A /* MoviesViewController.swift in Sources */,

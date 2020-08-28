@@ -10,6 +10,8 @@ import Foundation
 
 protocol MoviesInteractorProtocol {
   func requestMainMovies()
+  func getGenres()
+  func getTopRaited()
 }
 
 class MoviesInteractor: MoviesInteractorProtocol {
@@ -27,6 +29,28 @@ class MoviesInteractor: MoviesInteractorProtocol {
         return
       }
       self.presenter.sendMovies(movies: movies.results)
+    }
+  }
+  
+  func getGenres() {
+    NetworkService.shared.getGenreList { (genres, error) in
+      if let error = error {
+        print(error)
+        return
+      }
+      guard let genres = genres else {return}
+      self.presenter.sendGenres(genres: genres.genres)
+    }
+  }
+  
+  func getTopRaited() {
+    NetworkService.shared.getTopRaitedMovies { (topRaitedMovies, error) in
+      if let error = error {
+        print(error)
+        return
+      }
+      guard let movies = topRaitedMovies?.results else {return}
+      self.presenter.sendTopRaitedMovies(movies: movies)
     }
   }
   

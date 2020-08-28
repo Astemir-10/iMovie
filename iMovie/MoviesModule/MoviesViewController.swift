@@ -10,7 +10,7 @@ import UIKit
 
 class MoviesViewController: UIViewController {
   @IBOutlet weak var collectionView: UICollectionView!
-  var diffableDataSource: UICollectionViewDiffableDataSource<MoviesSection, Movie>!
+  var diffableDataSource: UICollectionViewDiffableDataSource<MoviesSection, MoviesItem>!
   
   var presenter: MoviesPresenterProtocol!
   let congigurator: MoviesConfiguratorProtocol = MoviesConfigurator()
@@ -21,6 +21,8 @@ class MoviesViewController: UIViewController {
     presenter.configureView()
     setupUI()
     presenter.requestMoviesForMain()
+    presenter.requestGenres()
+    presenter.requestTopRaited()
   }
 }
 
@@ -28,7 +30,6 @@ class MoviesViewController: UIViewController {
 // MARK: - MoviesViewProtocol
 extension MoviesViewController: MoviesViewProtocol {
   func displayPopularMovies() {
-    print(presenter.sections.count)
     DispatchQueue.main.async {
       self.configurationDiffableDataSource()
     }

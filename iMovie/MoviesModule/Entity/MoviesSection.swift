@@ -8,7 +8,13 @@
 
 import Foundation
 
+enum SectionType {
+  case popular
+  case genre
+  case topRaited
+}
 
 struct MoviesSection: Hashable {
   let name: String
+  let type: SectionType
 }

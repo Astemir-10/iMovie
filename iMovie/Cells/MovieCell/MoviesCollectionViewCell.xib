@@ -10,26 +10,29 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MoviesCollectionViewCell" customModule="iMovie" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="153" height="215"/>
+            <rect key="frame" x="0.0" y="0.0" width="141" height="246"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="153" height="215"/>
+                <rect key="frame" x="0.0" y="0.0" width="141" height="246"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tfM-As-W88">
-                        <rect key="frame" x="2" y="0.0" width="149" height="171"/>
+                        <rect key="frame" x="2" y="0.0" width="137" height="190"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="190" id="hiZ-wl-vmD"/>
+                        </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBa-3Y-1Yt">
-                        <rect key="frame" x="0.0" y="175" width="153" height="18"/>
+                        <rect key="frame" x="0.0" y="194" width="141" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="18" id="PYy-CC-lQl"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="PYy-CC-lQl"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6th-29-en8">
-                        <rect key="frame" x="0.0" y="197" width="153" height="18"/>
+                        <rect key="frame" x="0.0" y="212" width="141" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="IVa-3T-32v"/>
                         </constraints>
@@ -38,7 +41,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t3J-JU-cmW">
-                        <rect key="frame" x="123" y="8" width="30" height="17"/>
+                        <rect key="frame" x="111" y="8" width="30" height="17"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLF-sz-Q7O">
                                 <rect key="frame" x="6.5" y="2" width="17" height="13.5"/>
@@ -64,8 +67,8 @@
                 <constraint firstItem="tfM-As-W88" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="2" id="Lvj-Gd-IEe"/>
                 <constraint firstItem="eBa-3Y-1Yt" firstAttribute="top" secondItem="tfM-As-W88" secondAttribute="bottom" constant="4" id="Nik-H5-q6i"/>
                 <constraint firstAttribute="trailing" secondItem="tfM-As-W88" secondAttribute="trailing" constant="2" id="VYA-3f-JGU"/>
-                <constraint firstItem="6th-29-en8" firstAttribute="top" secondItem="eBa-3Y-1Yt" secondAttribute="bottom" constant="4" id="XXy-ot-kib"/>
-                <constraint firstAttribute="bottom" secondItem="6th-29-en8" secondAttribute="bottom" id="b4o-61-I7I"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="6th-29-en8" secondAttribute="bottom" priority="250" constant="11" id="Whs-2n-Rlj"/>
+                <constraint firstItem="6th-29-en8" firstAttribute="top" secondItem="eBa-3Y-1Yt" secondAttribute="bottom" id="XXy-ot-kib"/>
                 <constraint firstAttribute="trailing" secondItem="t3J-JU-cmW" secondAttribute="trailing" id="bfF-aw-OeD"/>
                 <constraint firstAttribute="trailing" secondItem="6th-29-en8" secondAttribute="trailing" id="lPW-ey-MbM"/>
                 <constraint firstItem="t3J-JU-cmW" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="moR-LL-qgn"/>

@@ -18,13 +18,14 @@ class MoviesCollectionViewCell: UICollectionViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    filmName.font = UIFont(name: "SourceSansPro-Regular", size: 16)
-    filmGenre.font = UIFont(name: "SourceSansPro-Regular", size: 14)
+    filmName.font = UIFont(name: "SourceSansPro-Regular", size: 14)
+    filmGenre.font = UIFont(name: "SourceSansPro-Regular", size: 12)
     filmGenre.adjustsFontSizeToFitWidth = true
 //    filmGenre.numberOfLines = 0
-    filmName.adjustsFontSizeToFitWidth = true
+//    filmName.adjustsFontSizeToFitWidth = true
+    filmName.numberOfLines = 2
     
-    posterImage.layer.cornerRadius = 12
+    posterImage.layer.cornerRadius = 10
     posterImage.clipsToBounds = true
     
     raitingLabel.textColor = .white
@@ -36,20 +37,24 @@ class MoviesCollectionViewCell: UICollectionViewCell {
     
     raitingLabel.font = UIFont(name: "SourceSansPro-Semibold", size: 14)
     
-    
     backgroundColor = .white
   }
   
-  func configure(_ model: Movie) {
+  override func prepareForReuse() {
+    posterImage.image = nil
+    super.prepareForReuse()
+  }
+  
+  func configure(_ model: MoviesItem) {
     filmName.text = model.title
-    posterImage.loadImage(url: model.posterUrl)
-    
+    posterImage.loadImage(url: model.imageURL)
+    raitingLabel.text = "\(model.voteAvg)"
     
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd"
-    let date = dateFormatter.date(from: model.dateRelease)
+    let date = dateFormatter.date(from: model.releaseDate)
     dateFormatter.dateFormat = "yyyy"
-    let year = dateFormatter.string(from: date!)
+    let year = dateFormatter.string(from: date ?? Date())
     
     NetworkService.shared.getGenreList { (genres, error) in
       if let error = error {
