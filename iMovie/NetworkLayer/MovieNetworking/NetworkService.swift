@@ -112,7 +112,7 @@ class NetworkService {
   }
   
   func getTrendingWeek(completion: @escaping MoviesResponse) {
-    getData(url: SourceURL.topRaited) { (data, error) in
+    getData(url: SourceURL.trendingMovieWeek) { (data, error) in
       if error != nil {
         completion(nil, error)
         return
@@ -121,7 +121,18 @@ class NetworkService {
       let resultDecoded: ResponseMovies  = MoviesDecoder.decodeMovies(data: data)
       completion(resultDecoded, error)
     }
-    
+  }
+  
+  func getTrendingDay(completion: @escaping MoviesResponse) {
+    getData(url: SourceURL.trendingMovieDay) { (data, error) in
+      if error != nil {
+        completion(nil, error)
+        return
+      }
+      guard let data = data else { fatalError("No Data") }
+      let resultDecoded: ResponseMovies  = MoviesDecoder.decodeMovies(data: data)
+      completion(resultDecoded, error)
+    }
   }
   
   fileprivate func getData(url: SourceURL, params: [String: String] = [:], completion: @escaping (Data?, String?) -> Void) {

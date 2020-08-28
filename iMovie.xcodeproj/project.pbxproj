@@ -86,8 +86,8 @@
 		E200867024F7237B0074378D /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
-				E200867724F72C620074378D /* Service */,
 				E2C4AF0424F80C0000C75023 /* MovieNetworking */,
+				E200867724F72C620074378D /* Service */,
 				E2C4AF0324F80BEC00C75023 /* Decoder */,
 			);
 			path = NetworkLayer;
