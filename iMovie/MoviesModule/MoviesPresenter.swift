@@ -12,6 +12,7 @@ protocol MoviesPresenterProtocol: class {
   var popularMoviesItems: [MoviesItem] {get}
   var genreItems: [MoviesItem] {get}
   var topRaitedMovies: [MoviesItem] {get}
+  var upcomingMovies: [MoviesItem] {get}
   var sections: [MoviesSection] {get}
   var router: MoviesRouterProtocol! {get set}
   func configureView()
@@ -21,12 +22,15 @@ protocol MoviesPresenterProtocol: class {
   func requestGenres()
   func requestTopRaited()
   func sendTopRaitedMovies(movies: [Movie])
+  func requestUpcoming()
+  func sendUpcomingMovies(movies: [Movie])
 }
 
 class MoviesPresenter: MoviesPresenterProtocol {
   var popularMoviesItems: [MoviesItem] = []
   var genreItems: [MoviesItem] = []
   var topRaitedMovies: [MoviesItem] = []
+  var upcomingMovies: [MoviesItem] = []
   
   var sections: [MoviesSection] = []
   
@@ -77,6 +81,18 @@ class MoviesPresenter: MoviesPresenterProtocol {
     for i in movies {
       let item = MoviesItem(title: i.title, imageURL: i.posterUrl, movieId: 1, genres: i.genres, releaseDate: i.dateRelease, voteAvg: i.voteAvg)
       topRaitedMovies.append(item)
+    }
+    sections.append(MoviesSection(name: "Top Raited", type: .topRaited))
+  }
+  
+  func requestUpcoming() {
+    interactor.getUpcoming()
+  }
+  
+  func sendUpcomingMovies(movies: [Movie]) {
+    for i in movies {
+      let item = MoviesItem(title: i.title, imageURL: i.posterUrl, movieId: 1, genres: i.genres, releaseDate: i.dateRelease, voteAvg: i.voteAvg)
+      upcomingMovies.append(item)
     }
     sections.append(MoviesSection(name: "Top Raited", type: .topRaited))
     view.displayPopularMovies()

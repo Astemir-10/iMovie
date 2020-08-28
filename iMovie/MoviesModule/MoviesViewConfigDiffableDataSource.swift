@@ -27,6 +27,9 @@ extension MoviesViewController {
     
     let HMovieCellNib = UINib(nibName: HMoviesCollectionViewCell.reuseId, bundle: nil)
     collectionView.register(HMovieCellNib.self, forCellWithReuseIdentifier: HMoviesCollectionViewCell.reuseId)
+    
+    let UpcomingCellNib = UINib(nibName: UpcomingCollectionViewCell.reuseId, bundle: nil)
+       collectionView.register(UpcomingCellNib.self, forCellWithReuseIdentifier: UpcomingCollectionViewCell.reuseId)
   }
   
   fileprivate func createCompositionLayout() -> UICollectionViewLayout {
@@ -40,6 +43,9 @@ extension MoviesViewController {
       }
       if section == 2 {
         return self.creteTopRaitedMoviesLayout()
+      }
+      if section == 3 {
+        return self.creteUpcomingLayout()
       }
       return nil
     }
@@ -69,6 +75,14 @@ extension MoviesViewController {
           if indexPath.section == 0 {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoviesCollectionViewCell.reuseId, for: indexPath) as? MoviesCollectionViewCell else {return nil}
             cell.configure(moviesItem)
+            return cell
+          }
+          
+          if indexPath.section == 3 {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UpcomingCollectionViewCell.reuseId, for: indexPath) as? UpcomingCollectionViewCell else {return nil}
+            cell.titleLabel.text = moviesItem.title
+            cell.posterImageView.loadImage(url: moviesItem.imageURL)
+//            cell.configure(moviesItem)
             return cell
           }
           return nil
@@ -134,6 +148,24 @@ extension MoviesViewController {
     return section
   }
   
+  fileprivate func creteUpcomingLayout() -> NSCollectionLayoutSection {
+    let collectionWidth = collectionView.frame.width
+    let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(collectionWidth - 16 - 20),
+                                          heightDimension: .absolute(100))
+    let item = NSCollectionLayoutItem(layoutSize: itemSize)
+    
+    let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(collectionWidth + 24),
+                                           heightDimension: .absolute(200 + 16))
+    
+    let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: 2)
+    group.interItemSpacing = .fixed(8)
+    
+    let section = NSCollectionLayoutSection(group: group)
+    section.orthogonalScrollingBehavior = .groupPaging
+    section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
+    return section
+  }
+  
   fileprivate func generateSnapshot() -> NSDiffableDataSourceSnapshot<MoviesSection, MoviesItem> {
     var snapshot = NSDiffableDataSourceSnapshot<MoviesSection, MoviesItem>()
     if !presenter.sections.isEmpty {
@@ -146,6 +178,9 @@ extension MoviesViewController {
       
       snapshot.appendSections([MoviesSection(name: "Item", type: .topRaited)])
       snapshot.appendItems(presenter.topRaitedMovies)
+      
+      snapshot.appendSections([MoviesSection(name: "Upcoming", type: .popular)])
+      snapshot.appendItems(presenter.upcomingMovies)
       
     }
     return snapshot

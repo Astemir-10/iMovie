@@ -12,6 +12,7 @@ protocol MoviesInteractorProtocol {
   func requestMainMovies()
   func getGenres()
   func getTopRaited()
+  func getUpcoming()
 }
 
 class MoviesInteractor: MoviesInteractorProtocol {
@@ -51,6 +52,17 @@ class MoviesInteractor: MoviesInteractorProtocol {
       }
       guard let movies = topRaitedMovies?.results else {return}
       self.presenter.sendTopRaitedMovies(movies: movies)
+    }
+  }
+  
+  func getUpcoming() {
+    NetworkService.shared.getUpcoming { (topRaitedMovies, error) in
+      if let error = error {
+        print(error)
+        return
+      }
+      guard let movies = topRaitedMovies?.results else {return}
+      self.presenter.sendUpcomingMovies(movies: movies)
     }
   }
   

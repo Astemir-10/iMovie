@@ -23,6 +23,7 @@ class MoviesViewController: UIViewController {
     presenter.requestMoviesForMain()
     presenter.requestGenres()
     presenter.requestTopRaited()
+    presenter.requestUpcoming()
   }
 }
 
