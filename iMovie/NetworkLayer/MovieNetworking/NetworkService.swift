@@ -14,6 +14,18 @@ enum SourceURL: String {
   case genresList = "https://api.themoviedb.org/3/genre/movie/list"
   case upcoming = "https://api.themoviedb.org/3/movie/upcoming"
   case downloadImage = "https://image.tmdb.org/t/p/w500"
+  case discover = "https://api.themoviedb.org/3/discover/movie"
+  case trendingMovieWeek = "https://api.themoviedb.org/3/trending/movie/week"
+  case trendingMovieDay = "https://api.themoviedb.org/3/trending/movie/day"
+}
+
+enum RequestGenres: Int {
+  case comedy = 35
+  case thriller = 53
+  case adventure = 12
+  case romance = 10749
+  case drama = 18
+  case scienceFiction = 878
 }
 
 typealias MoviesResponse = (ResponseMovies?, String?) -> Void
@@ -77,16 +89,56 @@ class NetworkService {
     }
   }
   
-  fileprivate func getData(url: SourceURL, completion: @escaping (Data?, String?) -> Void) {
+  func getMoviesByGenre(completion: @escaping MoviesResponse, genreList: [RequestGenres]) {
+    if genreList.isEmpty {fatalError("Set genres")}
+    var params = defaultParams
+    params["sort_by"] = "vote_average.des"
+    var genre = ""
+    for i in genreList {
+      genre += "\(i.rawValue),"
+    }
+    genre.removeLast()
+    params["with_genres"] = genre
+
+    getData(url: .discover, params: params) { (data, error) in
+      if let error = error {
+        completion(nil, error)
+        return
+      }
+      guard let data = data else { fatalError("No Data") }
+      let resultDecoded: ResponseMovies  = MoviesDecoder.decodeMovies(data: data)
+      completion(resultDecoded, error)
+    }
+  }
+  
+  func getTrendingWeek(completion: @escaping MoviesResponse) {
+    getData(url: SourceURL.topRaited) { (data, error) in
+      if error != nil {
+        completion(nil, error)
+        return
+      }
+      guard let data = data else { fatalError("No Data") }
+      let resultDecoded: ResponseMovies  = MoviesDecoder.decodeMovies(data: data)
+      completion(resultDecoded, error)
+    }
+    
+  }
+  
+  fileprivate func getData(url: SourceURL, params: [String: String] = [:], completion: @escaping (Data?, String?) -> Void) {
     var urlString: String
     switch url {
     case .popular: urlString = SourceURL.popular.rawValue
     case .topRaited: urlString = SourceURL.topRaited.rawValue
     case .genresList: urlString = SourceURL.genresList.rawValue
     case .upcoming: urlString = SourceURL.upcoming.rawValue
+    case .discover: urlString = SourceURL.discover.rawValue
+    case .trendingMovieDay: urlString = SourceURL.trendingMovieDay.rawValue
+    case .trendingMovieWeek: urlString = SourceURL.trendingMovieWeek.rawValue
     case .downloadImage: return
     }
-    router.request(url: urlString, method: .get, parapms: defaultParams, headers: nil) { (data, response, error) in
+    
+    let params = params.count == 0 ? defaultParams : params
+    router.request(url: urlString, method: .get, parapms: params, headers: nil) { (data, response, error) in
       if let error = error {
         let error = error.localizedDescription
         completion(nil, error)
