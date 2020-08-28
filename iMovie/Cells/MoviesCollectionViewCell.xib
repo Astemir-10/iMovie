@@ -16,19 +16,25 @@
                 <rect key="frame" x="0.0" y="0.0" width="153" height="215"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tfM-As-W88">
-                        <rect key="frame" x="0.0" y="0.0" width="153" height="171"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tfM-As-W88">
+                        <rect key="frame" x="2" y="0.0" width="149" height="171"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBa-3Y-1Yt">
                         <rect key="frame" x="0.0" y="175" width="153" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="PYy-CC-lQl"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6th-29-en8">
                         <rect key="frame" x="0.0" y="197" width="153" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="IVa-3T-32v"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t3J-JU-cmW">
@@ -55,9 +61,9 @@
                 <constraint firstItem="eBa-3Y-1Yt" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="2Ju-3y-rAH"/>
                 <constraint firstAttribute="trailing" secondItem="eBa-3Y-1Yt" secondAttribute="trailing" id="4ep-uK-Lfs"/>
                 <constraint firstItem="tfM-As-W88" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="HJd-3H-8Es"/>
-                <constraint firstItem="tfM-As-W88" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Lvj-Gd-IEe"/>
+                <constraint firstItem="tfM-As-W88" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="2" id="Lvj-Gd-IEe"/>
                 <constraint firstItem="eBa-3Y-1Yt" firstAttribute="top" secondItem="tfM-As-W88" secondAttribute="bottom" constant="4" id="Nik-H5-q6i"/>
-                <constraint firstAttribute="trailing" secondItem="tfM-As-W88" secondAttribute="trailing" id="VYA-3f-JGU"/>
+                <constraint firstAttribute="trailing" secondItem="tfM-As-W88" secondAttribute="trailing" constant="2" id="VYA-3f-JGU"/>
                 <constraint firstItem="6th-29-en8" firstAttribute="top" secondItem="eBa-3Y-1Yt" secondAttribute="bottom" constant="4" id="XXy-ot-kib"/>
                 <constraint firstAttribute="bottom" secondItem="6th-29-en8" secondAttribute="bottom" id="b4o-61-I7I"/>
                 <constraint firstAttribute="trailing" secondItem="t3J-JU-cmW" secondAttribute="trailing" id="bfF-aw-OeD"/>
