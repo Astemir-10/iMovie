@@ -14,7 +14,6 @@ extension MoviesViewController {
     navigationController?.navigationBar.prefersLargeTitles = true
     title = "Кино"
     setupCollectionView()
-//    configurationDiffableDataSource()
   }
   
   fileprivate func setupCollectionView() {
@@ -34,8 +33,7 @@ extension MoviesViewController {
   
   fileprivate func createCompositionLayout() -> UICollectionViewLayout {
     let layout = UICollectionViewCompositionalLayout { (section: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-//      print(section)
-      if section == 0 {
+      if section == 0 || section == 4 {
         return self.createMovieLayout()
       }
       if section == 1 {
@@ -64,15 +62,16 @@ extension MoviesViewController {
           }
           if indexPath.section == 2 {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HMoviesCollectionViewCell.reuseId, for: indexPath) as? HMoviesCollectionViewCell else {return nil}
+            
+            cell.backgroundColor = .black
             cell.posterImage.loadImage(url: moviesItem.imageURL)
             cell.posterImage.contentMode = .scaleAspectFill
             
             cell.filmName.text = moviesItem.title
-//            cell.filmGenre.text = moviesItem.ge
             cell.raitingLabel.text = String(moviesItem.voteAvg)
             return cell
           }
-          if indexPath.section == 0 {
+          if indexPath.section == 0 || indexPath.section == 4 {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoviesCollectionViewCell.reuseId, for: indexPath) as? MoviesCollectionViewCell else {return nil}
             cell.configure(moviesItem)
             return cell
@@ -82,9 +81,9 @@ extension MoviesViewController {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UpcomingCollectionViewCell.reuseId, for: indexPath) as? UpcomingCollectionViewCell else {return nil}
             cell.titleLabel.text = moviesItem.title
             cell.posterImageView.loadImage(url: moviesItem.imageURL)
-//            cell.configure(moviesItem)
             return cell
           }
+  
           return nil
       })
     let snapshot = generateSnapshot()
@@ -169,19 +168,22 @@ extension MoviesViewController {
   fileprivate func generateSnapshot() -> NSDiffableDataSourceSnapshot<MoviesSection, MoviesItem> {
     var snapshot = NSDiffableDataSourceSnapshot<MoviesSection, MoviesItem>()
     if !presenter.sections.isEmpty {
+      if snapshot.numberOfSections == 0 {
+        snapshot.appendSections(presenter.sections)
+      }
+//      snapshot.appendItems(presenter.popularMoviesItems)
+      
+      snapshot.appendItems(presenter.popularMoviesItems, toSection: presenter.sections[0])
+      
+//      snapshot.appendItems(presenter.genreItems)
+      snapshot.appendItems(presenter.genreItems, toSection: presenter.sections[1])
+      snapshot.appendItems(presenter.topRaitedMovies, toSection: presenter.sections[2])
+      
+//      snapshot.appendItems(presenter.topRaitedMovies)
+      
+      snapshot.appendItems(presenter.upcomingMovies, toSection: presenter.sections[3])
+      snapshot.appendItems(presenter.weekTrendMovies, toSection: presenter.sections[4])
 
-      snapshot.appendSections([MoviesSection(name: "popular", type: .popular)])
-      snapshot.appendItems(presenter.popularMoviesItems)
-      
-      snapshot.appendSections([MoviesSection(name: "Genre", type: .genre)])
-      snapshot.appendItems(presenter.genreItems)
-      
-      snapshot.appendSections([MoviesSection(name: "Item", type: .topRaited)])
-      snapshot.appendItems(presenter.topRaitedMovies)
-      
-      snapshot.appendSections([MoviesSection(name: "Upcoming", type: .popular)])
-      snapshot.appendItems(presenter.upcomingMovies)
-      
     }
     return snapshot
   }

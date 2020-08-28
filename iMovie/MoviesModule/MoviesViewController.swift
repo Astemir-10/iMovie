@@ -20,10 +20,6 @@ class MoviesViewController: UIViewController {
     congigurator.configure(with: self)
     presenter.configureView()
     setupUI()
-    presenter.requestMoviesForMain()
-    presenter.requestGenres()
-    presenter.requestTopRaited()
-    presenter.requestUpcoming()
   }
 }
 
@@ -33,6 +29,7 @@ extension MoviesViewController: MoviesViewProtocol {
   func displayPopularMovies() {
     DispatchQueue.main.async {
       self.configurationDiffableDataSource()
+      self.collectionView.reloadData()
     }
   }
 }

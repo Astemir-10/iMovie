@@ -13,6 +13,7 @@ protocol MoviesPresenterProtocol: class {
   var genreItems: [MoviesItem] {get}
   var topRaitedMovies: [MoviesItem] {get}
   var upcomingMovies: [MoviesItem] {get}
+  var weekTrendMovies: [MoviesItem] {get}
   var sections: [MoviesSection] {get}
   var router: MoviesRouterProtocol! {get set}
   func configureView()
@@ -24,6 +25,8 @@ protocol MoviesPresenterProtocol: class {
   func sendTopRaitedMovies(movies: [Movie])
   func requestUpcoming()
   func sendUpcomingMovies(movies: [Movie])
+  func requestWeekTrending()
+  func sendWeekTrendingMovies(movies: [Movie])
 }
 
 class MoviesPresenter: MoviesPresenterProtocol {
@@ -31,6 +34,7 @@ class MoviesPresenter: MoviesPresenterProtocol {
   var genreItems: [MoviesItem] = []
   var topRaitedMovies: [MoviesItem] = []
   var upcomingMovies: [MoviesItem] = []
+  var weekTrendMovies: [MoviesItem] = []
   
   var sections: [MoviesSection] = []
   
@@ -39,12 +43,16 @@ class MoviesPresenter: MoviesPresenterProtocol {
   var interactor: MoviesInteractorProtocol!
   
   func configureView() {
-    
+    interactor.requestMainMovies()
+    interactor.getTopRaited()
+    interactor.getGenres()
+    interactor.getWeekTrending()
+    interactor.getUpcoming()
   }
   
   func sendMovies(movies: [Movie]) {
     for i in movies {
-      let item = MoviesItem(title: i.title, imageURL: i.posterUrl, movieId: 1, genres: i.genres, releaseDate: i.dateRelease, voteAvg: i.voteAvg)
+      let item = MoviesItem(title: i.title, imageURL: i.posterUrl ?? "", movieId: 1, genres: i.genres, releaseDate: i.dateRelease ?? "", voteAvg: i.voteAvg)
       popularMoviesItems.append(item)
     }
     sections.append(MoviesSection(name: "Popular", type: .popular))
@@ -77,12 +85,12 @@ class MoviesPresenter: MoviesPresenterProtocol {
   }
   
   func sendTopRaitedMovies(movies: [Movie]) {
-    
     for i in movies {
-      let item = MoviesItem(title: i.title, imageURL: i.posterUrl, movieId: 1, genres: i.genres, releaseDate: i.dateRelease, voteAvg: i.voteAvg)
+      let item = MoviesItem(title: i.title, imageURL: i.posterUrl ?? "", movieId: 1, genres: i.genres, releaseDate: i.dateRelease ?? "", voteAvg: i.voteAvg)
       topRaitedMovies.append(item)
     }
     sections.append(MoviesSection(name: "Top Raited", type: .topRaited))
+//    view.displayPopularMovies()
   }
   
   func requestUpcoming() {
@@ -91,10 +99,24 @@ class MoviesPresenter: MoviesPresenterProtocol {
   
   func sendUpcomingMovies(movies: [Movie]) {
     for i in movies {
-      let item = MoviesItem(title: i.title, imageURL: i.posterUrl, movieId: 1, genres: i.genres, releaseDate: i.dateRelease, voteAvg: i.voteAvg)
+      let item = MoviesItem(title: i.title, imageURL: i.posterUrl ?? "", movieId: 1, genres: i.genres, releaseDate: i.dateRelease ?? "", voteAvg: i.voteAvg)
       upcomingMovies.append(item)
     }
     sections.append(MoviesSection(name: "Top Raited", type: .topRaited))
+//    view.displayPopularMovies()
+  }
+  
+  func requestWeekTrending() {
+    interactor.getWeekTrending()
+  }
+  
+  func sendWeekTrendingMovies(movies: [Movie]) {
+    for i in movies {
+      let item = MoviesItem(title: i.title, imageURL: i.posterUrl ?? "", movieId: 1, genres: i.genres, releaseDate: i.dateRelease ?? "", voteAvg: i.voteAvg)
+      weekTrendMovies.append(item)
+    }
+    sections.append(MoviesSection(name: "Trending", type: .popular))
+    print(sections.count)
     view.displayPopularMovies()
   }
 }
