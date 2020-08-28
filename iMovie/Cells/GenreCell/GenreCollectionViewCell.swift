@@ -14,7 +14,6 @@ class GenreCollectionViewCell: UICollectionViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     
-//    layer.addSublayer(gradient)
     layer.cornerRadius = 6
     genreName.font = UIFont(name: "SourceSansPro-Semibold", size: 17)
     genreName.textColor = .white

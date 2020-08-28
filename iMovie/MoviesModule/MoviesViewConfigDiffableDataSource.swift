@@ -49,7 +49,6 @@ extension MoviesViewController {
             cell.genreName.text = moviesItem.title
             return cell
           }
-          
           if indexPath.section == 2 {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HMoviesCollectionViewCell.reuseId, for: indexPath) as? HMoviesCollectionViewCell else {return nil}
             cell.configure(model: moviesItem)
@@ -89,11 +88,11 @@ extension MoviesViewController {
   }
   
   fileprivate func createGenreLoyout() -> NSCollectionLayoutSection {
-    let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(140),
-                                          heightDimension: .absolute(80))
+    let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(190),
+                                          heightDimension: .absolute(110))
     let item = NSCollectionLayoutItem(layoutSize: itemSize)
-    let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(140 + 16),
-                                           heightDimension: .absolute(80))
+    let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(190 + 16),
+                                           heightDimension: .absolute(110))
     let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
     group.interItemSpacing = .fixed(8)
     let section = NSCollectionLayoutSection(group: group)

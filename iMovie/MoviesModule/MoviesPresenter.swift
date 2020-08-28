@@ -48,7 +48,7 @@ class MoviesPresenter: MoviesPresenterProtocol {
   
   func sendMovies(movies: [Movie]) {
     for i in movies {
-      let item = MoviesItem(title: i.title, imageURL: i.posterUrl ?? "", movieId: 1, genres: i.genres, releaseDate: i.dateRelease ?? "", voteAvg: i.voteAvg)
+      let item = MoviesItem(title: i.title, imageURL: i.posterUrl ?? "", movieId: i.id, genres: i.genres, releaseDate: i.dateRelease ?? "", voteAvg: i.voteAvg, overview: i.overview ?? "")
       let containsMovie = moviesSet.insert(item)
       if containsMovie.inserted {
         popularMoviesItems.append(item)
@@ -58,13 +58,9 @@ class MoviesPresenter: MoviesPresenterProtocol {
     view.displayPopularMovies()
   }
   
-  func requestMoviesForMain() {
-    interactor.requestMainMovies()
-  }
-  
   func sendGenres(genres: [Genre]) {
     for i in genres {
-      let item = MoviesItem(title: i.name, imageURL: "", movieId: 1, genres: [], releaseDate: "", voteAvg: 0.0)
+      let item = MoviesItem(title: i.name, imageURL: "", movieId: 1, genres: [], releaseDate: "", voteAvg: 0.0, overview: "")
       let containsMovie = moviesSet.insert(item)
       if containsMovie.inserted {
         genreItems.append(item)
@@ -76,7 +72,7 @@ class MoviesPresenter: MoviesPresenterProtocol {
 
   func sendTopRaitedMovies(movies: [Movie]) {
     for i in movies {
-      let item = MoviesItem(title: i.title, imageURL: i.posterUrl ?? "", movieId: 1, genres: i.genres, releaseDate: i.dateRelease ?? "", voteAvg: i.voteAvg)
+      let item = MoviesItem(title: i.title, imageURL: i.posterUrl ?? "", movieId: i.id, genres: i.genres, releaseDate: i.dateRelease ?? "", voteAvg: i.voteAvg, overview: i.overview ?? "")
       let containsMovie = moviesSet.insert(item)
       if containsMovie.inserted {
         topRaitedMovies.append(item)
@@ -88,7 +84,7 @@ class MoviesPresenter: MoviesPresenterProtocol {
 
   func sendUpcomingMovies(movies: [Movie]) {
     for i in movies {
-      let item = MoviesItem(title: i.title, imageURL: i.posterUrl ?? "", movieId: 1, genres: i.genres, releaseDate: i.dateRelease ?? "", voteAvg: i.voteAvg)
+      let item = MoviesItem(title: i.title, imageURL: i.posterUrl ?? "", movieId: i.id, genres: i.genres, releaseDate: i.dateRelease ?? "", voteAvg: i.voteAvg, overview: i.overview ?? "")
       let containsMovie = moviesSet.insert(item)
       if containsMovie.inserted {
         upcomingMovies.append(item)
@@ -100,7 +96,7 @@ class MoviesPresenter: MoviesPresenterProtocol {
   
   func sendWeekTrendingMovies(movies: [Movie]) {
     for i in movies {
-      let item = MoviesItem(title: i.title, imageURL: i.posterUrl ?? "", movieId: 1, genres: i.genres, releaseDate: i.dateRelease ?? "", voteAvg: i.voteAvg)
+      let item = MoviesItem(title: i.title, imageURL: i.posterUrl ?? "", movieId: i.id, genres: i.genres, releaseDate: i.dateRelease ?? "", voteAvg: i.voteAvg, overview: i.overview ?? "")
       let containsMovie = moviesSet.insert(item)
       if containsMovie.inserted {
         weekTrendMovies.append(item)

@@ -17,8 +17,8 @@ class UpcomingCollectionViewCell: UICollectionViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    titleLabel.font = UIFont(name: "SourceSansPro-Regular", size: 14)
-    genreLabel.font = UIFont(name: "SourceSansPro-Regular", size: 13)
+    titleLabel.font = UIFont(name: "SourceSansPro-Regular", size: 16)
+    genreLabel.font = UIFont(name: "SourceSansPro-Regular", size: 14)
     genreLabel.textColor = #colorLiteral(red: 0.5529411765, green: 0.537254902, blue: 0.537254902, alpha: 1)
     descriptionLabel.font = UIFont(name: "SourceSansPro-Regular", size: 12)
     descriptionLabel.textColor = #colorLiteral(red: 0.5529411765, green: 0.537254902, blue: 0.537254902, alpha: 1)
@@ -30,7 +30,8 @@ class UpcomingCollectionViewCell: UICollectionViewCell {
   func configure(model: MoviesItem) {
     titleLabel.text = model.title
     posterImageView.loadImage(url: model.imageURL)
-    descriptionLabel.text = String(model.voteAvg)
+    descriptionLabel.text = model.overview
+    descriptionLabel.numberOfLines = 2
     
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd"
