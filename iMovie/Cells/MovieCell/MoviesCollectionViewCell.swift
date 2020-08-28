@@ -21,8 +21,7 @@ class MoviesCollectionViewCell: UICollectionViewCell {
     filmName.font = UIFont(name: "SourceSansPro-Regular", size: 14)
     filmGenre.font = UIFont(name: "SourceSansPro-Regular", size: 12)
     filmGenre.adjustsFontSizeToFitWidth = true
-//    filmGenre.numberOfLines = 0
-//    filmName.adjustsFontSizeToFitWidth = true
+
     filmName.numberOfLines = 2
     
     posterImage.layer.cornerRadius = 10
