@@ -169,13 +169,14 @@ extension MoviesViewController {
   fileprivate func generateSnapshot() -> NSDiffableDataSourceSnapshot<MoviesSection, MoviesItem> {
     var snapshot = NSDiffableDataSourceSnapshot<MoviesSection, MoviesItem>()
     
-    snapshot.appendSections(presenter.sections)
-    
-    snapshot.appendItems(presenter.popularMoviesItems, toSection: presenter.sections[0])
-    snapshot.appendItems(presenter.genreItems, toSection: presenter.sections[1])
-    snapshot.appendItems(presenter.topRaitedMovies, toSection: presenter.sections[2])
-    snapshot.appendItems(presenter.upcomingMovies, toSection: presenter.sections[3])
-    snapshot.appendItems(presenter.weekTrendMovies, toSection: presenter.sections[4])
+    if presenter.sections.count > 4 {
+      snapshot.appendSections(presenter.sections)
+      snapshot.appendItems(presenter.popularMoviesItems, toSection: presenter.sections[0])
+      snapshot.appendItems(presenter.genreItems, toSection: presenter.sections[1])
+      snapshot.appendItems(presenter.topRaitedMovies, toSection: presenter.sections[2])
+      snapshot.appendItems(presenter.upcomingMovies, toSection: presenter.sections[3])
+      snapshot.appendItems(presenter.weekTrendMovies, toSection: presenter.sections[4])
+    }
     
     return snapshot
   }
