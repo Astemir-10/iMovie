@@ -112,7 +112,7 @@ class NetworkService {
   }
   
   func getTrendingWeek(completion: @escaping MoviesResponse) {
-    getData(url: SourceURL.topRaited) { (data, error) in
+    getData(url: SourceURL.trendingMovieWeek) { (data, error) in
       if error != nil {
         completion(nil, error)
         return

@@ -29,7 +29,7 @@ extension MoviesViewController: MoviesViewProtocol {
   func displayPopularMovies() {
     DispatchQueue.main.async {
       self.configurationDiffableDataSource()
-      self.collectionView.reloadData()
+//      self.collectionView.reloadData()
     }
   }
 }

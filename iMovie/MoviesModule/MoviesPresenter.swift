@@ -43,10 +43,10 @@ class MoviesPresenter: MoviesPresenterProtocol {
   var interactor: MoviesInteractorProtocol!
   
   func configureView() {
+    interactor.getWeekTrending()
     interactor.requestMainMovies()
     interactor.getTopRaited()
     interactor.getGenres()
-    interactor.getWeekTrending()
     interactor.getUpcoming()
   }
   
@@ -56,6 +56,7 @@ class MoviesPresenter: MoviesPresenterProtocol {
       popularMoviesItems.append(item)
     }
     sections.append(MoviesSection(name: "Popular", type: .popular))
+    print("movies first = \(sections.count)")
 //    view.displayPopularMovies()
   }
   
@@ -73,6 +74,7 @@ class MoviesPresenter: MoviesPresenterProtocol {
       genreItems.append(item)
     }
     sections.append(MoviesSection(name: "Genres", type: .genre))
+    print("movies genre = \(sections.count)")
 //    view.displayPopularMovies()
   }
   
@@ -90,7 +92,8 @@ class MoviesPresenter: MoviesPresenterProtocol {
       topRaitedMovies.append(item)
     }
     sections.append(MoviesSection(name: "Top Raited", type: .topRaited))
-//    view.displayPopularMovies()
+    print("top raited items \(topRaitedMovies.count)")
+    print("movies topRaited = \(sections.count)")
   }
   
   func requestUpcoming() {
@@ -102,8 +105,31 @@ class MoviesPresenter: MoviesPresenterProtocol {
       let item = MoviesItem(title: i.title, imageURL: i.posterUrl ?? "", movieId: 1, genres: i.genres, releaseDate: i.dateRelease ?? "", voteAvg: i.voteAvg)
       upcomingMovies.append(item)
     }
-    sections.append(MoviesSection(name: "Top Raited", type: .topRaited))
-//    view.displayPopularMovies()
+    sections.append(MoviesSection(name: "Upcoming", type: .genre))
+    
+    for i in topRaitedMovies {
+      if popularMoviesItems.contains(i) {
+        if let index = topRaitedMovies.firstIndex(of: i) {
+          topRaitedMovies.remove(at: index)
+        }
+      }
+    }
+    for i in upcomingMovies {
+      if popularMoviesItems.contains(i) || topRaitedMovies.contains(i) {
+        if let index = upcomingMovies.firstIndex(of: i) {
+          upcomingMovies.remove(at: index)
+        }
+      }
+    }
+    
+    for i in weekTrendMovies {
+      if popularMoviesItems.contains(i) || topRaitedMovies.contains(i) || upcomingMovies.contains(i) {
+        if let index = weekTrendMovies.firstIndex(of: i) {
+          weekTrendMovies.remove(at: index)
+        }
+      }
+    }
+    view.displayPopularMovies()
   }
   
   func requestWeekTrending() {
@@ -116,7 +142,5 @@ class MoviesPresenter: MoviesPresenterProtocol {
       weekTrendMovies.append(item)
     }
     sections.append(MoviesSection(name: "Trending", type: .popular))
-    print(sections.count)
-    view.displayPopularMovies()
   }
 }

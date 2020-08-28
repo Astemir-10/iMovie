@@ -63,6 +63,7 @@ class MoviesInteractor: MoviesInteractorProtocol {
         return
       }
       guard let movies = topRaitedMovies?.results else {return}
+      
       self.presenter.sendUpcomingMovies(movies: movies)
     }
   }
