@@ -10,10 +10,10 @@ import Foundation
 
 struct Movie: Hashable {
   let title: String
-  let posterUrl: String
+  let posterUrl: String?
   let voteAvg: Double
   let genres: [Int]
-  let dateRelease: String
+  let dateRelease: String?
 }
 
 extension Movie: Decodable {
@@ -28,9 +28,9 @@ extension Movie: Decodable {
   init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: MovieCodingKey.self)
     title = try container.decode(String.self, forKey: .title)
-    posterUrl = try container.decode(String.self, forKey: .posterUrl)
+    posterUrl = try container.decode(String?.self, forKey: .posterUrl)
     voteAvg = try container.decode(Double.self, forKey: .voteAvg)
     genres = try container.decode([Int].self, forKey: .genres)
-    dateRelease = try container.decode(String.self, forKey: .dateRelease)
+    dateRelease = try container.decode(String?.self, forKey: .dateRelease)
   }
 }
