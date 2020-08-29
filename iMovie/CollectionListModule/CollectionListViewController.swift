@@ -24,6 +24,12 @@ class CollectionListViewController: UIViewController {
     presenter.configureView(type:contentType)
   }
   
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    navigationItem.title = navigationTitle
+    navigationController?.navigationItem.largeTitleDisplayMode = .never
+  }
+  
   fileprivate func setupUI() {
     let nib = UINib(nibName: MoviesCollectionViewCell.reuseId, bundle: nil)
     collectionView.register(nib.self, forCellWithReuseIdentifier: MoviesCollectionViewCell.reuseId)
@@ -31,8 +37,7 @@ class CollectionListViewController: UIViewController {
     collectionView.dataSource = self
     let layout = UICollectionViewFlowLayout()
     collectionView.collectionViewLayout = layout
-    navigationItem.title = navigationTitle
-    navigationController?.navigationItem.largeTitleDisplayMode = .never
+    
   }
 }
 
