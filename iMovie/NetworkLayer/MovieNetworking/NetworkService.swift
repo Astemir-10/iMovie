@@ -41,30 +41,6 @@ class NetworkService {
   }
   static let shared = NetworkService()
   
-  func getPopularMovies(completion: @escaping MoviesResponse) {
-    getData(url: SourceURL.popular) { (data, error) in
-      if error != nil {
-        completion(nil, error)
-        return
-      }
-      guard let data = data else { fatalError("No Data") }
-      let resultDecoded: ResponseMovies  = MoviesDecoder.decodeMovies(data: data)
-      completion(resultDecoded, error)
-    }
-  }
-  
-  func getTopRaitedMovies(completion: @escaping MoviesResponse) {
-    getData(url: SourceURL.topRaited) { (data, error) in
-      if error != nil {
-        completion(nil, error)
-        return
-      }
-      guard let data = data else { fatalError("No Data") }
-      let resultDecoded: ResponseMovies  = MoviesDecoder.decodeMovies(data: data)
-      completion(resultDecoded, error)
-    }
-  }
-  
   func getGenreList(completion: @escaping GenreListResponse) {
     getData(url: .genresList) { (data, error) in
       if error != nil {
@@ -76,18 +52,7 @@ class NetworkService {
       completion(resultDecoded, error)
     }
   }
-  
-  func getUpcoming(completion: @escaping MoviesResponse) {
-    getData(url: SourceURL.upcoming) { (data, error) in
-      if error != nil {
-        completion(nil, error)
-        return
-      }
-      guard let data = data else { fatalError("No Data") }
-      let resultDecoded: ResponseMovies  = MoviesDecoder.decodeMovies(data: data)
-      completion(resultDecoded, error)
-    }
-  }
+
   
   func getMoviesByGenre(completion: @escaping MoviesResponse, genreList: [RequestGenres]) {
     if genreList.isEmpty {fatalError("Set genres")}
@@ -111,20 +76,8 @@ class NetworkService {
     }
   }
   
-  func getTrendingWeek(completion: @escaping MoviesResponse) {
-    getData(url: SourceURL.trendingMovieWeek) { (data, error) in
-      if error != nil {
-        completion(nil, error)
-        return
-      }
-      guard let data = data else { fatalError("No Data") }
-      let resultDecoded: ResponseMovies  = MoviesDecoder.decodeMovies(data: data)
-      completion(resultDecoded, error)
-    }
-  }
-  
-  func getTrendingDay(completion: @escaping MoviesResponse) {
-    getData(url: SourceURL.trendingMovieDay) { (data, error) in
+  func getMoviesBy(contentType: SourceURL, completion: @escaping MoviesResponse) {
+    getData(url: contentType) { (data, error) in
       if error != nil {
         completion(nil, error)
         return
