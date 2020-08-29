@@ -22,12 +22,8 @@ class CollectionListViewController: UIViewController {
     setupUI()
     configurator.configure(with: self)
     presenter.configureView(type:contentType)
-  }
-  
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
     navigationItem.title = navigationTitle
-    navigationController?.navigationItem.largeTitleDisplayMode = .never
+    navigationController?.navigationBar.prefersLargeTitles = false
   }
   
   fileprivate func setupUI() {
