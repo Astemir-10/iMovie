@@ -22,18 +22,18 @@ class MoviesInteractor: MoviesInteractorProtocol {
   
   
   func requestMainMovies() {
-    NetworkService.shared.getPopularMovies { (movies, error) in
+    NetworkService.shared.getMoviesBy(contentType: .popular) { (movies, error) in
       if let error = error {
-        print(error)
-        return
+          print(error)
+          return
+        }
+        guard let movies = movies else {
+          print("No movies")
+          return
+        }
+        self.presenter.sendMovies(movies: movies.results)
       }
-      guard let movies = movies else {
-        print("No movies")
-        return
-      }
-      self.presenter.sendMovies(movies: movies.results)
     }
-  }
   
   func getGenres() {
     NetworkService.shared.getGenreList { (genres, error) in
@@ -47,7 +47,7 @@ class MoviesInteractor: MoviesInteractorProtocol {
   }
   
   func getTopRaited() {
-    NetworkService.shared.getTopRaitedMovies { (topRaitedMovies, error) in
+    NetworkService.shared.getMoviesBy(contentType: .topRaited) { (topRaitedMovies, error) in
       if let error = error {
         print(error)
         return
@@ -58,7 +58,7 @@ class MoviesInteractor: MoviesInteractorProtocol {
   }
   
   func getUpcoming() {
-    NetworkService.shared.getUpcoming { (topRaitedMovies, error) in
+   NetworkService.shared.getMoviesBy(contentType: .upcoming){ (topRaitedMovies, error) in
       if let error = error {
         print(error)
         return
@@ -70,7 +70,7 @@ class MoviesInteractor: MoviesInteractorProtocol {
   }
   
   func getWeekTrending() {
-    NetworkService.shared.getTrendingWeek { (weekTrending, error) in
+    NetworkService.shared.getMoviesBy(contentType: .trendingMovieWeek) { (weekTrending, error) in
       if let error = error {
         print(error)
         return
@@ -81,7 +81,7 @@ class MoviesInteractor: MoviesInteractorProtocol {
   }
   
   func getDayTrending() {
-    NetworkService.shared.getTrendingDay { (trendingDay, error) in
+   NetworkService.shared.getMoviesBy(contentType: .trendingMovieDay) { (trendingDay, error) in
       if let error = error {
         print(error)
         return
