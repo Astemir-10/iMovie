@@ -21,6 +21,7 @@ class CollectionListViewController: UIViewController {
     configurator.configure(with: self)
     presenter.configureView()
     
+    
   }
   
   fileprivate func setupUI() {

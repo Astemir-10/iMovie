@@ -16,7 +16,9 @@ class CollectionListInteractor: CollectionListInteractorType {
   weak var presenter: CollectionListPresenterType!
   
   func requestData() {
-    
+    NetworkService.shared.getMoviesBy(contentType: .genresList) { (genres, error) in
+      
+    }
   }
   
   init(presenter: CollectionListPresenterType) {
