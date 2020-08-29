@@ -31,7 +31,7 @@ class CollectionListViewController: UIViewController {
     collectionView.dataSource = self
     let layout = UICollectionViewFlowLayout()
     collectionView.collectionViewLayout = layout
-    title = navigationTitle
+    navigationController?.title = navigationTitle
   }
 }
 
