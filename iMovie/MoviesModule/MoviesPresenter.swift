@@ -24,7 +24,8 @@ protocol MoviesPresenterProtocol: class {
   func sendUpcomingMovies(movies: [Movie])
   func sendWeekTrendingMovies(movies: [Movie])
   func sendDayTrendingMovies(movies: [Movie])
-
+  
+  func openYetMovies(section: Int)
 }
 
 class MoviesPresenter: MoviesPresenterProtocol {
@@ -121,6 +122,10 @@ class MoviesPresenter: MoviesPresenterProtocol {
     }
     sections.append(MoviesSection(name: "Тренды дня", type: .popular))
     view.displayPopularMovies()
+  }
+  
+  func openYetMovies(section: Int) {
+    router.openYetMovies(section: section)
   }
   
   required init(view: MoviesViewProtocol) {

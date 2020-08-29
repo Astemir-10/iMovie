@@ -189,7 +189,7 @@ extension MoviesViewController {
 }
 
 extension MoviesViewController: MainHeaderViewDelegate {
-  func didTapYet(sectionindex: Int) {
-    print(sectionindex)
+  func didTapYet(sectionIndex: Int) {
+    presenter.openYetMovies(section: sectionIndex)
   }
 }

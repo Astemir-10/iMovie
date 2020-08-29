@@ -23,7 +23,7 @@ class TabBarController: UITabBarController {
     item.selectedImage = #imageLiteral(resourceName: "HomeTab")
     mainVC.tabBarItem = item
     
-    let secondVC: CollectionListViewController = CollectionListViewController.loadFromStoryboard()
+    let secondVC = UIViewController()
     secondVC.tabBarItem = UITabBarItem(title: "Коллекция", image: #imageLiteral(resourceName: "Collection"), selectedImage: nil)
     secondVC.view.backgroundColor = .white
     let thirdVC = UIViewController()

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MainHeaderViewDelegate: class {
-  func didTapYet(sectionindex: Int)
+  func didTapYet(sectionIndex: Int)
 }
 
 class MainHeaderView: UICollectionReusableView {
@@ -51,7 +51,7 @@ class MainHeaderView: UICollectionReusableView {
   
   @objc private func tapButton() {
     guard let delegate = delegate, let sectionNumber = sectionNumber else {return}
-    delegate.didTapYet(sectionindex: sectionNumber)
+    delegate.didTapYet(sectionIndex: sectionNumber)
   }
   
 
