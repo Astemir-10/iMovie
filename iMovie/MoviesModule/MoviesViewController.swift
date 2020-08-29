@@ -21,6 +21,11 @@ class MoviesViewController: UIViewController {
     presenter.configureView()
     setupUI()
   }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    navigationController?.navigationBar.prefersLargeTitles = true
+  }
 }
 
 

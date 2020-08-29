@@ -50,8 +50,8 @@ class MoviesCollectionViewCell: UICollectionViewCell {
   }
   
   override func prepareForReuse() {
-    posterImage.image = nil
     super.prepareForReuse()
+    posterImage.image = nil
   }
   
   func configure(_ model: MoviesCellModelProtocol) {
