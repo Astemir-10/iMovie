@@ -9,11 +9,15 @@
 import Foundation
 
 protocol CollectionListInteractorType: class {
-
+  func requestData()
 }
 
 class CollectionListInteractor: CollectionListInteractorType {
   weak var presenter: CollectionListPresenterType!
+  
+  func requestData() {
+    
+  }
   
   init(presenter: CollectionListPresenterType) {
     self.presenter = presenter
