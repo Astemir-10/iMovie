@@ -14,6 +14,7 @@ protocol MoviesPresenterProtocol: class {
   var topRaitedMovies: [MoviesItem] {get}
   var upcomingMovies: [MoviesItem] {get}
   var weekTrendMovies: [MoviesItem] {get}
+  var dayTrendMovies: [MoviesItem] {get}
   var sections: [MoviesSection] {get}
   var router: MoviesRouterProtocol! {get set}
   func configureView()
@@ -22,6 +23,8 @@ protocol MoviesPresenterProtocol: class {
   func sendTopRaitedMovies(movies: [Movie])
   func sendUpcomingMovies(movies: [Movie])
   func sendWeekTrendingMovies(movies: [Movie])
+  func sendDayTrendingMovies(movies: [Movie])
+
 }
 
 class MoviesPresenter: MoviesPresenterProtocol {
@@ -30,6 +33,7 @@ class MoviesPresenter: MoviesPresenterProtocol {
   var topRaitedMovies: [MoviesItem] = []
   var upcomingMovies: [MoviesItem] = []
   var weekTrendMovies: [MoviesItem] = []
+  var dayTrendMovies: [MoviesItem] = []
   private var moviesSet: Set<MoviesItem> = []
   
   var sections: [MoviesSection] = []
@@ -44,6 +48,7 @@ class MoviesPresenter: MoviesPresenterProtocol {
     interactor.getTopRaited()
     interactor.getGenres()
     interactor.getUpcoming()
+    interactor.getDayTrending()
   }
   
   func sendMovies(movies: [Movie]) {
@@ -54,7 +59,7 @@ class MoviesPresenter: MoviesPresenterProtocol {
         popularMoviesItems.append(item)
       }
     }
-    sections.append(MoviesSection(name: "Popular", type: .popular))
+    sections.append(MoviesSection(name: "Популярные фильмы", type: .popular))
     view.displayPopularMovies()
   }
   
@@ -66,7 +71,7 @@ class MoviesPresenter: MoviesPresenterProtocol {
         genreItems.append(item)
       }
     }
-    sections.append(MoviesSection(name: "Genres", type: .genre))
+    sections.append(MoviesSection(name: "Жанры", type: .genre))
     view.displayPopularMovies()
   }
 
@@ -78,7 +83,7 @@ class MoviesPresenter: MoviesPresenterProtocol {
         topRaitedMovies.append(item)
       }
     }
-    sections.append(MoviesSection(name: "Top Raited", type: .topRaited))
+    sections.append(MoviesSection(name: "Топ", type: .topRaited))
 
   }
 
@@ -90,7 +95,7 @@ class MoviesPresenter: MoviesPresenterProtocol {
         upcomingMovies.append(item)
       }
     }
-    sections.append(MoviesSection(name: "Upcoming", type: .genre))
+    sections.append(MoviesSection(name: "Скоро в кино", type: .genre))
     view.displayPopularMovies()
   }
   
@@ -102,7 +107,19 @@ class MoviesPresenter: MoviesPresenterProtocol {
         weekTrendMovies.append(item)
       }
     }
-    sections.append(MoviesSection(name: "Trending", type: .popular))
+    sections.append(MoviesSection(name: "Тренды недели", type: .popular))
+    view.displayPopularMovies()
+  }
+  
+  func sendDayTrendingMovies(movies: [Movie]) {
+    for i in movies {
+      let item = MoviesItem(title: i.title, imageURL: i.posterUrl ?? "", movieId: i.id, genres: i.genres, releaseDate: i.dateRelease ?? "", voteAvg: i.voteAvg, overview: i.overview ?? "")
+      let containsMovie = moviesSet.insert(item)
+      if containsMovie.inserted {
+        dayTrendMovies.append(item)
+      }
+    }
+    sections.append(MoviesSection(name: "Тренды дня", type: .popular))
     view.displayPopularMovies()
   }
   

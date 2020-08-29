@@ -48,7 +48,7 @@ class MoviesCollectionViewCell: UICollectionViewCell {
     filmName.text = model.title
     posterImage.loadImage(url: model.imageURL)
     raitingLabel.text = "\(model.voteAvg)"
-    
+    print("\(model.movieId) ---- \(model.title)")
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd"
     let date = dateFormatter.date(from: model.releaseDate)

@@ -24,6 +24,7 @@
 		E23F207F24F91A1300179CD1 /* HMoviesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E23F207D24F91A1300179CD1 /* HMoviesCollectionViewCell.xib */; };
 		E23F208424F9336000179CD1 /* UpcomingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F208224F9335F00179CD1 /* UpcomingCollectionViewCell.swift */; };
 		E23F208524F9336000179CD1 /* UpcomingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E23F208324F9335F00179CD1 /* UpcomingCollectionViewCell.xib */; };
+		E23F208A24FA3BF200179CD1 /* MainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F208924FA3BF200179CD1 /* MainHeaderView.swift */; };
 		E25F5BAD24F8854D00542B23 /* MoviesItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25F5BAC24F8854D00542B23 /* MoviesItem.swift */; };
 		E25F5BB024F8889900542B23 /* GenreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25F5BAE24F8889900542B23 /* GenreCollectionViewCell.swift */; };
 		E25F5BB124F8889900542B23 /* GenreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E25F5BAF24F8889900542B23 /* GenreCollectionViewCell.xib */; };
@@ -75,6 +76,7 @@
 		E23F207D24F91A1300179CD1 /* HMoviesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HMoviesCollectionViewCell.xib; sourceTree = "<group>"; };
 		E23F208224F9335F00179CD1 /* UpcomingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingCollectionViewCell.swift; sourceTree = "<group>"; };
 		E23F208324F9335F00179CD1 /* UpcomingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpcomingCollectionViewCell.xib; sourceTree = "<group>"; };
+		E23F208924FA3BF200179CD1 /* MainHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainHeaderView.swift; sourceTree = "<group>"; };
 		E25F5BAC24F8854D00542B23 /* MoviesItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesItem.swift; sourceTree = "<group>"; };
 		E25F5BAE24F8889900542B23 /* GenreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCollectionViewCell.swift; sourceTree = "<group>"; };
 		E25F5BAF24F8889900542B23 /* GenreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenreCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -150,15 +152,16 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		E2238C6624F7034400DDD76E /* Cells */ = {
+		E2238C6624F7034400DDD76E /* SuplaViews */ = {
 			isa = PBXGroup;
 			children = (
+				E23F208824FA3B9E00179CD1 /* Header */,
 				E23F208124F9334D00179CD1 /* Upcoming */,
 				E25F5BB224F9074500542B23 /* GenreCell */,
 				E25F5BB324F9075100542B23 /* MovieCell */,
 				E23F208024F91A1900179CD1 /* HMoviesCell */,
 			);
-			path = Cells;
+			path = SuplaViews;
 			sourceTree = "<group>";
 		};
 		E23F208024F91A1900179CD1 /* HMoviesCell */ = {
@@ -177,6 +180,14 @@
 				E23F208324F9335F00179CD1 /* UpcomingCollectionViewCell.xib */,
 			);
 			path = Upcoming;
+			sourceTree = "<group>";
+		};
+		E23F208824FA3B9E00179CD1 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				E23F208924FA3BF200179CD1 /* MainHeaderView.swift */,
+			);
+			path = Header;
 			sourceTree = "<group>";
 		};
 		E25F5BB224F9074500542B23 /* GenreCell */ = {
@@ -221,7 +232,7 @@
 				E2C4AF0A24F8112200C75023 /* Fonts */,
 				E2C4AEFF24F80B2100C75023 /* Models */,
 				E200867024F7237B0074378D /* NetworkLayer */,
-				E2238C6624F7034400DDD76E /* Cells */,
+				E2238C6624F7034400DDD76E /* SuplaViews */,
 				E2B2508E24F6E6AB00BBDE0A /* MoviesModule */,
 				E2B2509424F6E74F00BBDE0A /* Helper */,
 				E2B2508324F6E49900BBDE0A /* Assets.xcassets */,
@@ -418,6 +429,7 @@
 				E2C4AF2424F828F600C75023 /* UIImageView + loadImage.swift in Sources */,
 				E2B2508224F6E49300BBDE0A /* iMovie.xcdatamodeld in Sources */,
 				E2B2509A24F6EAB900BBDE0A /* MoviesPresenter.swift in Sources */,
+				E23F208A24FA3BF200179CD1 /* MainHeaderView.swift in Sources */,
 				E23F208424F9336000179CD1 /* UpcomingCollectionViewCell.swift in Sources */,
 				E2B2509624F6E75F00BBDE0A /* UIViewController + loadFromStoryboard.swift in Sources */,
 				E200868324F80A550074378D /* MovieGenres.swift in Sources */,

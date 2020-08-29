@@ -14,6 +14,7 @@ protocol MoviesInteractorProtocol {
   func getTopRaited()
   func getUpcoming()
   func getWeekTrending()
+  func getDayTrending()
 }
 
 class MoviesInteractor: MoviesInteractorProtocol {
@@ -76,6 +77,18 @@ class MoviesInteractor: MoviesInteractorProtocol {
       }
       guard let movies = weekTrending?.results else {return}
       self.presenter.sendWeekTrendingMovies(movies: movies)
+    }
+  }
+  
+  func getDayTrending() {
+    NetworkService.shared.getTrendingDay { (trendingDay, error) in
+      if let error = error {
+        print(error)
+        return
+      }
+      
+      guard let movies = trendingDay?.results else {return}
+      self.presenter.sendDayTrendingMovies(movies: movies)
     }
   }
   
