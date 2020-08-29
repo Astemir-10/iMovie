@@ -14,7 +14,16 @@ extension UIViewController {
     if let viewController = storyboard.instantiateViewController(identifier: id) as? T {
       return viewController
     } else {
-      fatalError("not found storyboard by name \(storyboardName) ")
+      fatalError("not found storyboard by name \(storyboardName)")
     }
+  }
+  
+  class func loadFromStoryboard<T: UIViewController>() -> T {
+    let name = String(describing: T.self)
+    let storyboard = UIStoryboard(name: name, bundle: nil)
+    if let viewController = storyboard.instantiateInitialViewController() as? T {
+      return viewController
+    }
+    fatalError("not found storyboard by name \(name)")
   }
 }
