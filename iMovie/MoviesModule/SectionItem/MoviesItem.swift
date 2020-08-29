@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MoviesItem: Hashable {
+struct MoviesItem: Hashable, MoviesCellModelProtocol  {
   let title: String
   let imageURL: String
   let movieId: Int

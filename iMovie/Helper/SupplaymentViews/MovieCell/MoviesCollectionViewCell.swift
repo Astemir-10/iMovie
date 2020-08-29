@@ -8,6 +8,16 @@
 
 import UIKit
 
+protocol MoviesCellModelProtocol {
+  var title: String {get}
+  var imageURL: String {get}
+  var movieId: Int {get}
+  var genres: [Int] {get}
+  var releaseDate: String {get}
+  var voteAvg: Double {get}
+  var overview: String {get}
+}
+
 class MoviesCollectionViewCell: UICollectionViewCell {
   static let reuseId = String(describing: MoviesCollectionViewCell.self)
   @IBOutlet weak var posterImage: UIImageView!
@@ -44,7 +54,7 @@ class MoviesCollectionViewCell: UICollectionViewCell {
     super.prepareForReuse()
   }
   
-  func configure(_ model: MoviesItem) {
+  func configure(_ model: MoviesCellModelProtocol) {
     filmName.text = model.title
     posterImage.loadImage(url: model.imageURL)
     raitingLabel.text = "\(model.voteAvg)"

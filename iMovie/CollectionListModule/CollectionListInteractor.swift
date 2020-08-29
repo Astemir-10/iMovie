@@ -9,15 +9,20 @@
 import Foundation
 
 protocol CollectionListInteractorType: class {
-  func requestData()
+  func requestData(type: SourceURL)
 }
 
 class CollectionListInteractor: CollectionListInteractorType {
   weak var presenter: CollectionListPresenterType!
   
-  func requestData() {
-    NetworkService.shared.getMoviesBy(contentType: .genresList) { (genres, error) in
-      
+  func requestData(type: SourceURL) {
+    NetworkService.shared.getMoviesBy(contentType: type) { (movies, error) in
+      if let error = error {
+        print(error)
+        return
+      }
+      guard let movies = movies?.results else {return}
+      self.presenter.sendMovies(movies: movies)
     }
   }
   

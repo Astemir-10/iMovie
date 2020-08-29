@@ -13,15 +13,15 @@ class CollectionListViewController: UIViewController {
   @IBOutlet weak var collectionView: UICollectionView!
   
   var presenter: CollectionListPresenterType!
+  var navigationTitle: String?
+  var contentType: SourceURL!
   let configurator: CollectionListConfiguratorType! = CollectionListConfigurator()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     setupUI()
     configurator.configure(with: self)
-    presenter.configureView()
-    
-    
+    presenter.configureView(type:contentType)
   }
   
   fileprivate func setupUI() {
@@ -30,20 +30,21 @@ class CollectionListViewController: UIViewController {
     collectionView.delegate = self
     collectionView.dataSource = self
     let layout = UICollectionViewFlowLayout()
-    
     collectionView.collectionViewLayout = layout
+    title = navigationTitle
   }
 }
 
 // MARK: - CollextionView delegate dataSource flowDelegate
 extension CollectionListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 10
+    return presenter.movies.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoviesCollectionViewCell.reuseId, for: indexPath) as! MoviesCollectionViewCell
-    cell.posterImage.image = UIImage(named: "devergent")
+    let movie = presenter.movies[indexPath.row]
+    cell.configure(movie)
     return cell
   }
   
@@ -63,5 +64,21 @@ extension CollectionListViewController: UICollectionViewDelegate, UICollectionVi
 }
 
 extension CollectionListViewController: CollectionListViewProtocol {
+  func dataRecived() {
+    DispatchQueue.main.async {
+      self.collectionView.reloadData()
+    }
+  }
   
+  
+}
+
+struct CollectionListCellModel: MoviesCellModelProtocol {
+  var title: String
+  var imageURL: String
+  var movieId: Int
+  var genres: [Int]
+  var releaseDate: String
+  var voteAvg: Double
+  var overview: String
 }
