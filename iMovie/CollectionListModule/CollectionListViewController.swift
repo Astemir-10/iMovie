@@ -32,6 +32,7 @@ class CollectionListViewController: UIViewController {
     let layout = UICollectionViewFlowLayout()
     collectionView.collectionViewLayout = layout
     navigationItem.title = navigationTitle
+    navigationController?.navigationItem.largeTitleDisplayMode = .never
   }
 }
 
