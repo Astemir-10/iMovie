@@ -20,6 +20,8 @@
 		E2238C6924F7036300DDD76E /* MoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2238C6724F7036300DDD76E /* MoviesCollectionViewCell.swift */; };
 		E2238C6A24F7036300DDD76E /* MoviesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2238C6824F7036300DDD76E /* MoviesCollectionViewCell.xib */; };
 		E2238C6D24F7063200DDD76E /* MoviesViewConfigDiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2238C6C24F7063200DDD76E /* MoviesViewConfigDiffableDataSource.swift */; };
+		E2264DAF24FC5AA3004D2886 /* DetailContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2264DAE24FC5AA3004D2886 /* DetailContentView.swift */; };
+		E2264DB124FC5EE8004D2886 /* NSLayoutConstraint + addView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2264DB024FC5EE8004D2886 /* NSLayoutConstraint + addView.swift */; };
 		E23F207E24F91A1300179CD1 /* HMoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F207C24F91A1300179CD1 /* HMoviesCollectionViewCell.swift */; };
 		E23F207F24F91A1300179CD1 /* HMoviesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E23F207D24F91A1300179CD1 /* HMoviesCollectionViewCell.xib */; };
 		E23F208424F9336000179CD1 /* UpcomingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F208224F9335F00179CD1 /* UpcomingCollectionViewCell.swift */; };
@@ -33,6 +35,8 @@
 		E23F209824FA5F6A00179CD1 /* CollectionListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F209724FA5F6A00179CD1 /* CollectionListRouter.swift */; };
 		E23F209A24FA5F7C00179CD1 /* CollectionListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F209924FA5F7C00179CD1 /* CollectionListConfigurator.swift */; };
 		E23F209C24FA5FD700179CD1 /* CollectionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F209B24FA5FD700179CD1 /* CollectionListView.swift */; };
+		E23F209F24FA99C000179CD1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F209E24FA99C000179CD1 /* DetailViewController.swift */; };
+		E23F20A124FA99C800179CD1 /* DetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E23F20A024FA99C800179CD1 /* DetailViewController.storyboard */; };
 		E25F5BAD24F8854D00542B23 /* MoviesItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25F5BAC24F8854D00542B23 /* MoviesItem.swift */; };
 		E25F5BB024F8889900542B23 /* GenreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25F5BAE24F8889900542B23 /* GenreCollectionViewCell.swift */; };
 		E25F5BB124F8889900542B23 /* GenreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E25F5BAF24F8889900542B23 /* GenreCollectionViewCell.xib */; };
@@ -80,6 +84,8 @@
 		E2238C6724F7036300DDD76E /* MoviesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesCollectionViewCell.swift; sourceTree = "<group>"; };
 		E2238C6824F7036300DDD76E /* MoviesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoviesCollectionViewCell.xib; sourceTree = "<group>"; };
 		E2238C6C24F7063200DDD76E /* MoviesViewConfigDiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewConfigDiffableDataSource.swift; sourceTree = "<group>"; };
+		E2264DAE24FC5AA3004D2886 /* DetailContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContentView.swift; sourceTree = "<group>"; };
+		E2264DB024FC5EE8004D2886 /* NSLayoutConstraint + addView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint + addView.swift"; sourceTree = "<group>"; };
 		E23F207C24F91A1300179CD1 /* HMoviesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMoviesCollectionViewCell.swift; sourceTree = "<group>"; };
 		E23F207D24F91A1300179CD1 /* HMoviesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HMoviesCollectionViewCell.xib; sourceTree = "<group>"; };
 		E23F208224F9335F00179CD1 /* UpcomingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -93,6 +99,8 @@
 		E23F209724FA5F6A00179CD1 /* CollectionListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionListRouter.swift; sourceTree = "<group>"; };
 		E23F209924FA5F7C00179CD1 /* CollectionListConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionListConfigurator.swift; sourceTree = "<group>"; };
 		E23F209B24FA5FD700179CD1 /* CollectionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionListView.swift; sourceTree = "<group>"; };
+		E23F209E24FA99C000179CD1 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		E23F20A024FA99C800179CD1 /* DetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailViewController.storyboard; sourceTree = "<group>"; };
 		E25F5BAC24F8854D00542B23 /* MoviesItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesItem.swift; sourceTree = "<group>"; };
 		E25F5BAE24F8889900542B23 /* GenreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCollectionViewCell.swift; sourceTree = "<group>"; };
 		E25F5BAF24F8889900542B23 /* GenreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenreCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -180,6 +188,14 @@
 			path = SupplaymentViews;
 			sourceTree = "<group>";
 		};
+		E2264DAD24FC56AF004D2886 /* DetailContentView */ = {
+			isa = PBXGroup;
+			children = (
+				E2264DAE24FC5AA3004D2886 /* DetailContentView.swift */,
+			);
+			path = DetailContentView;
+			sourceTree = "<group>";
+		};
 		E23F208024F91A1900179CD1 /* HMoviesCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +244,16 @@
 			path = CollectionListModule;
 			sourceTree = "<group>";
 		};
+		E23F209D24FA998400179CD1 /* DetailModule */ = {
+			isa = PBXGroup;
+			children = (
+				E2264DAD24FC56AF004D2886 /* DetailContentView */,
+				E23F209E24FA99C000179CD1 /* DetailViewController.swift */,
+				E23F20A024FA99C800179CD1 /* DetailViewController.storyboard */,
+			);
+			path = DetailModule;
+			sourceTree = "<group>";
+		};
 		E25F5BB224F9074500542B23 /* GenreCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,8 +291,10 @@
 		E2B2507624F6E49300BBDE0A /* iMovie */ = {
 			isa = PBXGroup;
 			children = (
-				E2B2507724F6E49300BBDE0A /* AppDelegate.swift */,
 				E2B2507924F6E49300BBDE0A /* SceneDelegate.swift */,
+				E2B2507724F6E49300BBDE0A /* AppDelegate.swift */,
+				E2264DB024FC5EE8004D2886 /* NSLayoutConstraint + addView.swift */,
+				E23F209D24FA998400179CD1 /* DetailModule */,
 				E23F208E24FA5D1300179CD1 /* CollectionListModule */,
 				E23F208B24FA53C300179CD1 /* TabBar */,
 				E2C4AEFF24F80B2100C75023 /* Entities */,
@@ -437,6 +465,7 @@
 				E2C4AF2224F8190800C75023 /* SourceSansPro-ExtraLightIt.otf in Resources */,
 				E2C4AF1B24F8190800C75023 /* SourceSansPro-Bold.otf in Resources */,
 				E2C4AF1A24F8190800C75023 /* SourceSansPro-BoldIt.otf in Resources */,
+				E23F20A124FA99C800179CD1 /* DetailViewController.storyboard in Resources */,
 				E2B2509224F6E6DE00BBDE0A /* MoviesViewController.storyboard in Resources */,
 				E2C4AF1C24F8190800C75023 /* SourceSansPro-BlackIt.otf in Resources */,
 				E2B2508424F6E49900BBDE0A /* Assets.xcassets in Resources */,
@@ -477,6 +506,7 @@
 				E200868324F80A550074378D /* MovieGenres.swift in Sources */,
 				E200868124F7E62F0074378D /* PopularMoviesResponse.swift in Sources */,
 				E23F208D24FA53F600179CD1 /* TabBarController.swift in Sources */,
+				E2264DAF24FC5AA3004D2886 /* DetailContentView.swift in Sources */,
 				E2238C6D24F7063200DDD76E /* MoviesViewConfigDiffableDataSource.swift in Sources */,
 				E2B2507824F6E49300BBDE0A /* AppDelegate.swift in Sources */,
 				E2C4AF0824F80C3100C75023 /* ResponseResult.swift in Sources */,
@@ -489,10 +519,12 @@
 				E2B2507A24F6E49300BBDE0A /* SceneDelegate.swift in Sources */,
 				E200867F24F7E5C20074378D /* Movie.swift in Sources */,
 				E2B2509824F6EAB100BBDE0A /* MoviesConfigurator.swift in Sources */,
+				E23F209F24FA99C000179CD1 /* DetailViewController.swift in Sources */,
 				E2C4AF0624F80C1100C75023 /* ResponseErrors.swift in Sources */,
 				E23F209624FA5F6200179CD1 /* CollectionListPresenter.swift in Sources */,
 				E23F209424FA5F5900179CD1 /* CollectionListInteractor.swift in Sources */,
 				E23F207E24F91A1300179CD1 /* HMoviesCollectionViewCell.swift in Sources */,
+				E2264DB124FC5EE8004D2886 /* NSLayoutConstraint + addView.swift in Sources */,
 				E23F209A24FA5F7C00179CD1 /* CollectionListConfigurator.swift in Sources */,
 				E200867424F723980074378D /* HTTPMethod.swift in Sources */,
 				E2B2509C24F6EAC100BBDE0A /* MoviesInteractor.swift in Sources */,
