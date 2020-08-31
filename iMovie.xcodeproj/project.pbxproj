@@ -325,12 +325,11 @@
 			children = (
 				E2B2507924F6E49300BBDE0A /* SceneDelegate.swift */,
 				E2B2507724F6E49300BBDE0A /* AppDelegate.swift */,
-				E2264DB024FC5EE8004D2886 /* NSLayoutConstraint + addView.swift */,
+				E200867024F7237B0074378D /* NetworkLayer */,
 				E23F209D24FA998400179CD1 /* DetailModule */,
 				E23F208E24FA5D1300179CD1 /* CollectionListModule */,
 				E23F208B24FA53C300179CD1 /* TabBar */,
 				E2C4AEFF24F80B2100C75023 /* Entities */,
-				E200867024F7237B0074378D /* NetworkLayer */,
 				E2B2508E24F6E6AB00BBDE0A /* MoviesModule */,
 				E2B2509424F6E74F00BBDE0A /* Helper */,
 				E2B2508324F6E49900BBDE0A /* Assets.xcassets */,
@@ -363,6 +362,7 @@
 				E2238C6624F7034400DDD76E /* SupplaymentViews */,
 				E2C4AF0A24F8112200C75023 /* Fonts */,
 				E2B2509524F6E75F00BBDE0A /* UIViewController + loadFromStoryboard.swift */,
+				E2264DB024FC5EE8004D2886 /* NSLayoutConstraint + addView.swift */,
 				E2C4AF2324F828F600C75023 /* UIImageView + loadImage.swift */,
 			);
 			path = Helper;
