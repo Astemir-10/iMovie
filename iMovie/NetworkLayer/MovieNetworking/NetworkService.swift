@@ -17,6 +17,7 @@ enum SourceURL: String {
   case discover = "https://api.themoviedb.org/3/discover/movie"
   case trendingMovieWeek = "https://api.themoviedb.org/3/trending/movie/week"
   case trendingMovieDay = "https://api.themoviedb.org/3/trending/movie/day"
+  case movieDetail = "https://api.themoviedb.org/3/movie/"
 }
 
 
@@ -89,6 +90,33 @@ class NetworkService {
     }
   }
   
+  func getMovieBy(id: Int, completion: @escaping DetailMovieResponse) {
+    let url = "\(SourceURL.movieDetail.rawValue)\(String(id))"
+    router.request(url: url, method: .get, parapms: defaultParams, headers: nil) { (data, response, error) in
+      if let error = error {
+        let error = error.localizedDescription
+        completion(nil, error)
+        return
+      }
+      if let response = response as? HTTPURLResponse {
+        let result = self.handleResponse(response: response)
+        switch result {
+        case .success:
+          guard let data = data else {
+            completion(nil, "No Data Movie Detail")
+            return
+          }
+          let resultDecode: MovieDetail = MoviesDecoder.decodeMovies(data: data)
+          completion(resultDecode, nil)
+        case .failure(let error): completion(nil, error)
+        }
+      } else {
+        completion(nil, "No response")
+        return
+      }
+    }
+  }
+  
   fileprivate func getData(url: SourceURL, params: [String: String] = [:], completion: @escaping (Data?, String?) -> Void) {
     var urlString: String
     switch url {
@@ -99,7 +127,7 @@ class NetworkService {
     case .discover: urlString = SourceURL.discover.rawValue
     case .trendingMovieDay: urlString = SourceURL.trendingMovieDay.rawValue
     case .trendingMovieWeek: urlString = SourceURL.trendingMovieWeek.rawValue
-    case .downloadImage: return
+    default: return
     }
     
     let params = params.count == 0 ? defaultParams : params
