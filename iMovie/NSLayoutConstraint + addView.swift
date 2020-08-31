@@ -54,6 +54,15 @@ extension UIView {
   
   }
   
+  func setSizeAnchor(size: CGSize) {
+    if size.width > 0 {
+      self.widthAnchor.constraint(equalToConstant: size.width).isActive = true
+    }
+    if size.height > 0 {
+      self.heightAnchor.constraint(equalToConstant: size.height).isActive = true
+    }
+  }
+  
   enum Anchors {
     case top, bottom, leading, trailing
   }

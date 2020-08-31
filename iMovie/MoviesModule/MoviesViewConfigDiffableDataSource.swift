@@ -102,6 +102,7 @@ extension MoviesViewController {
   fileprivate func createMovieLayout() -> NSCollectionLayoutSection {
     let cellWidth = CGFloat(141)
     let cellHeight = cellWidth / 0.5726495726
+    print(cellHeight)
     let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(cellWidth),
                                           heightDimension: .absolute(cellHeight))
     let item = NSCollectionLayoutItem(layoutSize: itemSize)

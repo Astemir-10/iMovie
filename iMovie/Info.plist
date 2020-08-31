@@ -24,6 +24,7 @@
 	<array>
 		<string>SourceSansPro-Regular.otf</string>
 		<string>SourceSansPro-Semibold.otf</string>
+		<string>SourceSansPro-It.otf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

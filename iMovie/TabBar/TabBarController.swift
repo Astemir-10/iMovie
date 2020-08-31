@@ -26,7 +26,7 @@ class TabBarController: UITabBarController {
     let secondVC = UIViewController()
     secondVC.tabBarItem = UITabBarItem(title: "Коллекция", image: #imageLiteral(resourceName: "Collection"), selectedImage: nil)
     secondVC.view.backgroundColor = .white
-    let thirdVC = UIViewController()
+    let thirdVC = UINavigationController(rootViewController: DetailViewController(movieId: 27746))
     thirdVC.view.backgroundColor = .white
     thirdVC.tabBarItem = UITabBarItem(title: "Найти", image: #imageLiteral(resourceName: "search"), selectedImage: nil)
     let fourthVC = UIViewController()
