@@ -19,6 +19,7 @@ enum SourceURL: String {
   case trendingMovieDay = "https://api.themoviedb.org/3/trending/movie/day"
 }
 
+
 enum RequestGenres: Int {
   case comedy = 35
   case thriller = 53
