@@ -32,6 +32,7 @@ enum RequestGenres: Int {
 
 typealias MoviesResponse = (ResponseMovies?, String?) -> Void
 typealias GenreListResponse = (MovieGenres?, String?) -> Void
+typealias DetailMovieResponse = (MovieDetail?, String?) -> Void
 
 
 class NetworkService {
