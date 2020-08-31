@@ -112,6 +112,7 @@ class NetworkService {
         }
       } else {
         completion(nil, "No response")
+        
         return
       }
     }
